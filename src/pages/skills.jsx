@@ -57,8 +57,8 @@ function SkillBubble({skill}) {
     const rgbColor = skill.rgb;
     const darker_factor = 0.95;
     const light_factor = 1.3;
-    const lightColor = rgbToCss(adjustBrightness(rgbColor, light_factor));
-    const darkColor = rgbToCss(adjustBrightness(rgbColor, darker_factor));
+    const lightColor = rgbToCss(adjustBrightness(rgbColor, light_factor), 0.7);
+    const darkColor = rgbToCss(adjustBrightness(rgbColor, darker_factor), 0.7);
 
     const dynamicStyle = {
         ...skillBubbleStyle,

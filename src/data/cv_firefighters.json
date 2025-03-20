@@ -1,0 +1,222 @@
+[
+  {
+    "date": "2009-09-01",
+    "title": "Eintritt",
+    "description": "Jugendfeuerwehr der Freiwilligen Feuerwehr Bedburg",
+    "location": "Bedburg",
+    "type": "start",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2015-02-19",
+    "title": "Eintritt",
+    "description": "Aktive Wehr der Freiwilligen Feuerwehr Bedburg",
+    "location": "Bedburg",
+    "type": "start",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2015-03-14",
+    "title": "Seminar & Lehrgang",
+    "description": "Grundausbildungslehrgang Modul 2 un 4",
+    "location": "Bedburg",
+    "type": "education",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2015-11-28",
+    "title": "Seminar & Lehrgang",
+    "description": "Sprechfunker",
+    "location": "Bedburg",
+    "type": "education",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2016-03-19",
+    "title": "Seminar & Lehrgang",
+    "description": "Grundausbildungslehrgang Modul 1 un 3",
+    "location": "Bedburg",
+    "type": "education",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2016-09-04",
+    "title": "Urkunde",
+    "description": "Feuerwehrleistungsabzeichen in Bronze",
+    "location": "Bedburg",
+    "type": "trophy",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2016-10-15",
+    "title": "Seminar & Lehrgang",
+    "description": "JF - Fortbildung: Öffentlichkeitsarbeit / Gestaltung von Übungsdiensten",
+    "location": "Bedburg",
+    "type": "education",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2016-11-19",
+    "title": "Seminar & Lehrgang",
+    "description": "Atemschutzgeräteträger",
+    "location": "Bedburg",
+    "type": "education",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2017-07-01",
+    "title": "Seminar & Lehrgang",
+    "description": "JF - Fortbildung: Gruppendynamische Spiele (Theorie & Praxis) - Seminar",
+    "location": "Bedburg",
+    "type": "education",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2017-12-09",
+    "title": "Seminar & Lehrgang",
+    "description": "JF - Fortbildung: Jugendschutz / Waffengewalt",
+    "location": "Bedburg",
+    "type": "education",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2018-03-17",
+    "title": "Beförderung",
+    "description": "Oberfeuerwehrmann (OFM)",
+    "location": "Bedburg",
+    "type": "rank_up",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2018-07-21",
+    "title": "Seminar & Lehrgang",
+    "description": "Führungshilfspersonal (ELW) - Grundausbildung",
+    "location": "Bedburg",
+    "type": "rank_up",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2018-09-08",
+    "title": "Urkunde",
+    "description": "Feuerwehrleistungsabzeichen in Silber",
+    "location": "Bedburg",
+    "type": "trophy",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2019-01-01",
+    "title": "Ernennung",
+    "description": "Stv. Jugendfeuerwehrwart",
+    "location": "Bedburg",
+    "type": "rank_up",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2019-04-06",
+    "title": "Seminar & Lehrgang",
+    "description": "Truppführer",
+    "location": "Bedburg",
+    "type": "education",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2019-07-13",
+    "title": "Seminar & Lehrgang",
+    "description": "Machinist für Löschfahrzeuge",
+    "location": "Bedburg",
+    "type": "education",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2020-03-21",
+    "title": "Beförderung",
+    "description": "Unterbrandmeister (UBM)",
+    "location": "Bedburg",
+    "type": "rank_up",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2020-12-31",
+    "title": "Rücktritt",
+    "description": "Stv. Jugendfeuerwehrwart",
+    "location": "Bedburg",
+    "type": "rank_up",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2021",
+    "title": "Auszeichnung",
+    "description": "Erhalt der 'Feuerwehr- und Katastrophenschutzeinsatzmedaille des Landes NRW' Durch den Einsatz: 'Hochwasserereignis 2021'",
+    "location": "Bedburg",
+    "type": "award",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2022-09-17",
+    "title": "Urkunde",
+    "description": "Feuerwehrleistungsabzeichen in Gold",
+    "location": "Bedburg",
+    "type": "trophy",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2023-11-19",
+    "title": "Seminar & Lehrgang",
+    "description": "JF - Fortbildung: Didaktik und gruppendynamische Spiele",
+    "location": "Bedburg",
+    "type": "education",
+    "tags": [
+      "firefighters"
+    ]
+  },
+  {
+    "date": "2023-09-01",
+    "title": "Ernennung",
+    "description": "Jugendfeuerwehrwart",
+    "location": "Bedburg",
+    "type": "rank_up",
+    "tags": [
+      "firefighters"
+    ]
+  }
+]

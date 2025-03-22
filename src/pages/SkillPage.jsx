@@ -5,24 +5,24 @@ import skills from "../data/skills.json";
 import CropDinIcon from '@mui/icons-material/CropDin';
 import {AccountTree as AccountTreeIcon, Build as BuildIcon, Cloud as CloudIcon, Code as CodeIcon, ExpandMore as ExpandMoreIcon, Storage as StorageIcon, Terminal as TerminalIcon,} from "@mui/icons-material";
 
-const skillIcon = (category) => {
-    switch (category) {
+const skillIcon = (icon) => {
+    switch (icon) {
         case "Code":
             return <CodeIcon/>;
         case "CropDinIcon":
             return <CropDinIcon/>;
+        case "StorageIcon":
+            return <StorageIcon/>;
         case "ExpandMoreIcon":
             return <ExpandMoreIcon/>;
-        case "Tool":
+        case "BuildIcon":
             return <BuildIcon/>;
-        case "Terminal":
+        case "TerminalIcon":
             return <TerminalIcon/>;
         case "CloudIcon":
             return <CloudIcon/>;
-        case "Framework":
+        case "Module":
             return <AccountTreeIcon/>;
-        case "Database":
-            return <StorageIcon/>;
         default:
             return <CodeIcon/>;
     }
@@ -35,9 +35,9 @@ function FlippingSkillCard({skill}) {
         <Box
             sx={{
                 perspective: "1000px",
-                width: "250px",
-                height: "200px",
-                margin: "20px"
+                width: "220px",
+                height: "180px",
+                margin: "10px"
             }}
             onClick={() => setFlipped(!flipped)}
         >
@@ -64,14 +64,15 @@ function FlippingSkillCard({skill}) {
                         flexDirection: "column",
                         bgcolor: skill.color,
                         color: "#fff",
-                        borderRadius: 3
+                        borderRadius: 3,
+                        padding: 1
                     }}
                 >
-                    <CardContent sx={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-                        <Avatar sx={{bgcolor: "#fff", color: skill.color, mb: 2}}>
-                            {skillIcon(skill.category)}
+                    <CardContent sx={{display: "flex", flexDirection: "column", alignItems: "center", padding: "8px !important"}}>
+                        <Avatar sx={{bgcolor: "#fff", color: skill.color, mb: 1}}>
+                            {skillIcon(skill.icon)}
                         </Avatar>
-                        <Typography variant="h5" textAlign="center">{skill.name}</Typography>
+                        <Typography variant="h6" textAlign="center">{skill.name}</Typography>
                     </CardContent>
                 </Card>
 
@@ -84,31 +85,30 @@ function FlippingSkillCard({skill}) {
                         backfaceVisibility: "hidden",
                         transform: "rotateY(180deg)",
                         bgcolor: "#f5f5f5",
-                        borderRadius: 3
+                        borderRadius: 3,
+                        padding: 1
                     }}
                 >
-                    <CardContent>
-                        <Typography variant="h6">{skill.name}</Typography>
-                        <Typography variant="body2" mt={1}>Seit: {skill.since}</Typography>
+                    <CardContent sx={{padding: "8px !important"}}>
+                        <Typography variant="subtitle1" mb={0.5}>{skill.name}</Typography>
+                        <Box display="flex" justifyContent="space-between" alignItems="center" mt={0.5} mb={0.5}>
+                            <Typography variant="caption">Seit: {skill.since}</Typography>
+                            <Typography variant="caption" color="text.secondary">{skill.level}%</Typography>
+                        </Box>
                         <LinearProgress
                             variant="determinate"
                             value={skill.level}
                             sx={{
-                                height: 10, borderRadius: 5, "& .MuiLinearProgress-bar": {
+                                height: 8, borderRadius: 4, "& .MuiLinearProgress-bar": {
                                     backgroundColor: skill.color,
                                 },
                             }}
                         />
-                        <Box display="flex" justifyContent="flex-end" mt={1}>
-                            <Typography variant="body2" color="text.secondary">
-                                {skill.level}%
-                            </Typography>
-                        </Box>
                         {skill.projects.length > 0 && (
                             <>
-                                <Typography variant="subtitle2" mt={1}>Projekte:</Typography>
+                                <Typography variant="caption" mt={0.5}>Projekte: <br/></Typography>
                                 {skill.projects.map((project, i) => (
-                                    <Typography key={i} variant="body2">- {project}</Typography>
+                                    <Typography key={i} variant="caption">- {project}</Typography>
                                 ))}
                             </>
                         )}
@@ -121,13 +121,13 @@ function FlippingSkillCard({skill}) {
 
 function SkillGridPage() {
     return (
-        <Box p={4}>
-            <Typography variant="h3" gutterBottom>
+        <Box p={3}>
+            <Typography variant="h4" gutterBottom>
                 🛠 Meine Skills
             </Typography>
-            <Grid container spacing={4} justifyContent="center">
+            <Grid container spacing={1} justifyContent="center">
                 {skills.map((skill, index) => (
-                    <Grid item xs={12} sm={6} md={3} key={index} display="flex" justifyContent="center">
+                    <Grid item xs={6} sm={4} md={3} key={index} display="flex" justifyContent="center">
                         <FlippingSkillCard skill={skill} index={index}/>
                     </Grid>
                 ))}

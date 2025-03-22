@@ -80,7 +80,7 @@ function SkillBubble({skill}) {
     );
 }
 
-export default function Skills() {
+export default function SkillsBubbles() {
     return (
         <div>
             <h1>Skills</h1>

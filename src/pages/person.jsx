@@ -111,9 +111,9 @@ export default function PersonPage() {
 
             <OhrwurmPlayer/>
 
-            <Typography variant="caption" mt={6} color="grey.500">
-                PS: Wenn du das hier liest, lade ich dich auf eine virtuelle Runde DnD ein 😉
-            </Typography>
+            {/*<Typography variant="caption" mt={6} color="grey.500">*/}
+            {/*    PS: Wenn du das hier liest, lade ich dich auf eine virtuelle Runde DnD ein 😉*/}
+            {/*</Typography>*/}
         </Box>
     );
 }

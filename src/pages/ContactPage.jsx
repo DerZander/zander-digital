@@ -77,7 +77,7 @@ export default function ContactPage() {
 
                     <Stack direction="row" justifyContent="center" spacing={2} mb={3}>
                         <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
-                            <IconButton color="primary" href="mailto:mail@zander.digital" target="_blank" title="LinkedIn">
+                            <IconButton color="primary" href="mailto:mail@zander.digital" target="_blank" title="Mail">
                                 <EmailIcon fontSize="large"/>
                             </IconButton>
                         </motion.div>

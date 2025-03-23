@@ -1,9 +1,9 @@
 import * as React from 'react';
 import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import {Outlet, useNavigate} from "react-router";
 import {routes} from "../routes.jsx";
+import MenuIcon from '@mui/icons-material/Menu';
 
 export default function Navigation() {
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ export default function Navigation() {
             <SpeedDial
                 ariaLabel="Navigation Menü"
                 sx={{position: 'fixed', bottom: 24, right: 24}}
-                icon={<SpeedDialIcon/>}
+                icon={<MenuIcon/>}
             >
                 {routes.sort((a, b) => b.id - a.id).map((action) => (
                     <SpeedDialAction

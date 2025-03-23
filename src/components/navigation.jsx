@@ -5,7 +5,6 @@ import SpeedDialAction from '@mui/material/SpeedDialAction';
 import {Outlet, useNavigate} from "react-router";
 import {routes} from "../routes.jsx";
 
-
 export default function Navigation() {
     const navigate = useNavigate();
 

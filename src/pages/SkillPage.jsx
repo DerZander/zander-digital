@@ -3,7 +3,7 @@ import {useState} from "react";
 import skills from "../data/skills.json";
 
 import CropDinIcon from '@mui/icons-material/CropDin';
-import {AccountTree as AccountTreeIcon, Build as BuildIcon, Cloud as CloudIcon, Code as CodeIcon, ExpandMore as ExpandMoreIcon, Storage as StorageIcon, Terminal as TerminalIcon,} from "@mui/icons-material";
+import {AccountTree as AccountTreeIcon, Build as BuildIcon, Cloud as CloudIcon, Code as CodeIcon, ExpandMore as ExpandMoreIcon, Star as StarIcon, Storage as StorageIcon, Terminal as TerminalIcon,} from "@mui/icons-material";
 
 const skillIcon = (icon) => {
     switch (icon) {
@@ -28,8 +28,23 @@ const skillIcon = (icon) => {
     }
 }
 
+const calculateLevelFromXP = (xp) => {
+    const level = Math.floor(Math.log2(xp));
+    return level >= 10 ? "Max." : level;
+}
+
+const calculateProgressToNextLevel = (xp) => {
+    const level = Math.floor(Math.log2(xp));
+    if (level >= 10) return 100;
+    const currentLevelXP = Math.pow(2, level);
+    const nextLevelXP = Math.pow(2, level + 1);
+    const progress = ((xp - currentLevelXP) / (nextLevelXP - currentLevelXP)) * 100;
+    return progress > 100 ? 100 : progress;
+}
+
 function FlippingSkillCard({skill}) {
     const [flipped, setFlipped] = useState(false);
+    const isMaxLevel = Math.floor(Math.log2(skill.xp)) >= 10;
 
     return (
         <Box
@@ -68,6 +83,11 @@ function FlippingSkillCard({skill}) {
                         padding: 1
                     }}
                 >
+                    {/* HIER wurde was geändert
+                    */}
+                    {isMaxLevel && (
+                        <StarIcon sx={{position: "absolute", top: 8, right: 8, color: "gold", fontSize: 30}}/>
+                    )}
                     <CardContent sx={{display: "flex", flexDirection: "column", alignItems: "center", padding: "8px !important"}}>
                         <Avatar sx={{bgcolor: "#fff", color: skill.color, mb: 1}}>
                             {skillIcon(skill.icon)}
@@ -93,11 +113,11 @@ function FlippingSkillCard({skill}) {
                         <Typography variant="subtitle1" mb={0.5}>{skill.name}</Typography>
                         <Box display="flex" justifyContent="space-between" alignItems="center" mt={0.5} mb={0.5}>
                             <Typography variant="caption">Seit: {skill.since}</Typography>
-                            <Typography variant="caption" color="text.secondary">{skill.level}%</Typography>
+                            <Typography variant="caption" color="text.secondary">Level {calculateLevelFromXP(skill.xp)}</Typography>
                         </Box>
                         <LinearProgress
                             variant="determinate"
-                            value={skill.level}
+                            value={calculateProgressToNextLevel(skill.xp)}
                             sx={{
                                 height: 8, borderRadius: 4, "& .MuiLinearProgress-bar": {
                                     backgroundColor: skill.color,

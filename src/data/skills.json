@@ -1,23 +1,52 @@
 [
   {
     "name": "Python",
-    "level": 90,
+    "xp": 1048,
     "description": "Python is a high-level, interpreted, object-oriented language focused on readability and rapid development.",
     "icon": "Code",
     "since": 2017,
+    "isFavorite": true,
     "projects": [
-      "Data Tools",
-      "Firebook Scripts"
+      "Utils",
+      "Advent of Code"
     ],
     "color": "#3572A5",
     "category": "Language"
   },
   {
-    "name": "Java",
-    "level": 85,
+    "name": "Docker",
+    "xp": 600,
     "description": "Java is a robust, class-based, object-oriented programming language used in backend systems and Android development.",
     "icon": "Code",
     "since": 2016,
+    "isFavorite": false,
+    "projects": [
+      "Spring Boot APIs",
+      "Backend Services"
+    ],
+    "color": "#264de4",
+    "category": "Service"
+  },
+  {
+    "name": "GML",
+    "xp": 80,
+    "description": "GameMaker Language is a scripting language used in the GameMaker Studio game engine.",
+    "icon": "Gamepad",
+    "since": 2014,
+    "projects": [
+      "GameMaker Projects"
+    ],
+    "color": "#8f0000",
+    "category": "Language"
+  },
+  {
+    "name": "Java",
+    "level": 85,
+    "xp": 860,
+    "description": "Java is a robust, class-based, object-oriented programming language used in backend systems and Android development.",
+    "icon": "Code",
+    "since": 2016,
+    "isFavorite": false,
     "projects": [
       "Spring Boot APIs",
       "Backend Services"

@@ -1,12 +1,11 @@
 import {Avatar, Box, Card, CardContent, Grid, LinearProgress, Typography,} from "@mui/material";
 import {useState} from "react";
 import skills from "../data/skills.json";
-
-import CropDinIcon from '@mui/icons-material/CropDin';
-import {AccountTree as AccountTreeIcon, Build as BuildIcon, Cloud as CloudIcon, Code as CodeIcon, ExpandMore as ExpandMoreIcon, Star as StarIcon, Storage as StorageIcon, Terminal as TerminalIcon,} from "@mui/icons-material";
+import {motion} from "framer-motion";
+import {AccountTree as AccountTreeIcon, Build as BuildIcon, Cloud as CloudIcon, Code as CodeIcon, Star as StarIcon, Storage as StorageIcon, Terminal as TerminalIcon,} from "@mui/icons-material";
 
 import {keyframes} from '@emotion/react';
-import {blueGrey} from "@mui/material/colors";
+import {blue, blueGrey} from "@mui/material/colors";
 
 const rainbowAnimation = keyframes`
     0% {
@@ -20,24 +19,32 @@ const rainbowAnimation = keyframes`
     }
 `;
 
-const skillIcon = (icon) => {
-    switch (icon) {
+const blueGlowAnimation = keyframes`
+    0% {
+        box-shadow: 0 0 10px ${blue[500]};
+    }
+    50% {
+        box-shadow: 0 0 25px ${blue[500]};
+    }
+    100% {
+        box-shadow: 0 0 10px ${blue[500]};
+    }
+`;
+
+const skillIcon = (category) => {
+    switch (category) {
         case "Code":
             return <CodeIcon/>;
-        case "CropDinIcon":
-            return <CropDinIcon/>;
-        case "StorageIcon":
+        case "Database":
             return <StorageIcon/>;
-        case "ExpandMoreIcon":
-            return <ExpandMoreIcon/>;
-        case "BuildIcon":
-            return <BuildIcon/>;
+        case "Framework":
+            return <AccountTreeIcon/>;
         case "TerminalIcon":
             return <TerminalIcon/>;
-        case "CloudIcon":
+        case "Service":
             return <CloudIcon/>;
-        case "Module":
-            return <AccountTreeIcon/>;
+        case "Tools":
+            return <BuildIcon/>;
         default:
             return <CodeIcon/>;
     }
@@ -88,9 +95,9 @@ function FlippingSkillCard({skill}) {
         <Box
             sx={{
                 perspective: "1000px",
-                width: "220px",
+                width: {xs: "180px", sm: "220px"},
                 height: "180px",
-                margin: "10px",
+                margin: "10px auto",
                 position: "relative"
             }}
             onClick={() => setFlipped(!flipped)}
@@ -148,7 +155,7 @@ function FlippingSkillCard({skill}) {
                         )}
                         <CardContent sx={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "8px !important", width: "100%", height: "100%", boxSizing: "border-box"}}>
                             <Avatar sx={{bgcolor: "#fff", color: skill.color, mb: 1}}>
-                                {skillIcon(skill.icon)}
+                                {skillIcon(skill.category)}
                             </Avatar>
                             <Typography variant="h6" textAlign="center">{skill.name}</Typography>
                         </CardContent>
@@ -164,7 +171,8 @@ function FlippingSkillCard({skill}) {
                         backfaceVisibility: "hidden",
                         transform: "rotateY(180deg)",
                         transformOrigin: "center center",
-                        bgcolor: "#f5f5f5",
+                        bgcolor: cardColor(skill.color),
+                        color: "#fff",
                         borderRadius: 3,
                         padding: 1,
                         top: 0,
@@ -176,14 +184,17 @@ function FlippingSkillCard({skill}) {
                         <Typography variant="subtitle1" mb={0.5}>{skill.name}</Typography>
                         <Box display="flex" justifyContent="space-between" alignItems="center" mt={0.5} mb={0.5}>
                             <Typography variant="caption">Seit: {skill.since}</Typography>
-                            <Typography variant="caption" color="text.secondary">Level {calculateLevelFromXP(skill.xp)}</Typography>
+                            <Typography variant="caption" color="text.secondary" sx={{color: "#fff"}}>Level {calculateLevelFromXP(skill.xp)}</Typography>
                         </Box>
                         <LinearProgress
                             variant="determinate"
                             value={calculateProgressToNextLevel(skill.xp)}
                             sx={{
-                                height: 8, borderRadius: 4, "& .MuiLinearProgress-bar": {
-                                    backgroundColor: skill.color,
+                                height: 8,
+                                borderRadius: 4,
+                                animation: `${blueGlowAnimation} 2s infinite alternate`,
+                                "& .MuiLinearProgress-bar": {
+                                    backgroundColor: blue[500],
                                 },
                             }}
                         />
@@ -209,13 +220,16 @@ function SkillGridPage() {
 
     return (
         <Box p={3}>
-            {/*<Typography variant="h4" gutterBottom>*/}
-            {/*    🛠 Meine Skills*/}
-            {/*</Typography>*/}
             <Grid container spacing={1} justifyContent="center">
                 {sortedSkills.map((skill, index) => (
-                    <Grid item xs={6} sm={4} md={3} key={index} display="flex" justifyContent="center">
-                        <FlippingSkillCard skill={skill} index={index}/>
+                    <Grid item xs={6} sm={6} md={3} l={2} key={index} display="flex" justifyContent="center">
+                        <motion.div
+                            initial={{opacity: 0, y: 30}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{duration: 0.5, delay: index * 0.1}}
+                        >
+                            <FlippingSkillCard skill={skill} index={index}/>
+                        </motion.div>
                     </Grid>
                 ))}
             </Grid>

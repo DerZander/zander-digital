@@ -1,4 +1,4 @@
-import {Box, Button, Grid, IconButton, Paper, Stack, Typography} from "@mui/material";
+import {Box, IconButton, Stack, Typography} from "@mui/material";
 import React from "react";
 import {motion} from "framer-motion";
 import {loadFull} from "tsparticles";
@@ -71,49 +71,37 @@ export default function ContactPage() {
                     transition={{duration: 0.8}}
                     style={{textAlign: 'center'}}
                 >
-                    <Typography variant="overline" color="grey.500">GET IN TOUCH</Typography>
-                    <Typography variant="h3" mb={4} sx={{background: 'white', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Contact Me</Typography>
-                    <Typography variant="h3" mb={4} sx={{background: 'linear-gradient(90deg, #ff4e50, #f9d423)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Contact Me</Typography>
-                    <Typography variant="h3" mb={4} sx={{background: 'linear-gradient(90deg, #00c6ff, #0072ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Contact Me</Typography>
-                    <Typography variant="h3" mb={4} sx={{background: 'linear-gradient(90deg, #7b2ff7, #f107a3)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Contact Me</Typography>
-                    <Typography variant="h3" mb={4} sx={{background: 'linear-gradient(90deg, #ff4e50, #f9d423, #6dd5ed, #2980b9)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Contact Me</Typography>
+                    {/*<Typography variant="overline" color="grey.500">GET IN TOUCH</Typography>*/}
 
-                    <Paper elevation={3} sx={{p: 4, borderRadius: 3, maxWidth: 500, backgroundColor: 'rgba(17, 17, 17, 0.85)', backdropFilter: 'blur(10px)'}}>
-                        <Grid container mb={2}>
-                            <Button
-                                fullWidth
-                                variant="outlined"
-                                startIcon={<EmailIcon/>}
-                                sx={{color: '#fff', borderColor: '#fff', '&:hover': {borderColor: '#f9d423', color: '#f9d423'}}}
-                                href="mailto:mail@zander.digital"
-                            >
-                                E-Mail
-                            </Button>
-                        </Grid>
+                    <Typography variant="h3" mb={4} sx={{background: 'linear-gradient(90deg, #00c6ff, #0072ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Kontaktiere mich</Typography>
 
-                        <Stack direction="row" justifyContent="center" spacing={2} mb={3}>
-                            <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
-                                <IconButton color="primary" href="https://linkedin.com/in/timo-zander-6446a322a" target="_blank" title="LinkedIn">
-                                    <LinkedInIcon fontSize="large"/>
-                                </IconButton>
-                            </motion.div>
-                            <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
-                                <IconButton color="primary" href="https://instagram.com/dieser_zander" target="_blank" title="Instagram">
-                                    <InstagramIcon fontSize="large"/>
-                                </IconButton>
-                            </motion.div>
-                            <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
-                                <IconButton color="primary" href="https://github.com/DerZander" target="_blank" title="Github">
-                                    <GithubIcon fontSize="large"/>
-                                </IconButton>
-                            </motion.div>
-                            <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
-                                <IconButton color="primary" href="https://facebook.com/100008370105149" target="_blank" title="Facebook">
-                                    <FacebookIcon fontSize="large"/>
-                                </IconButton>
-                            </motion.div>
-                        </Stack>
-                    </Paper>
+                    <Stack direction="row" justifyContent="center" spacing={2} mb={3}>
+                        <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
+                            <IconButton color="primary" href="mailto:mail@zander.digital" target="_blank" title="LinkedIn">
+                                <EmailIcon fontSize="large"/>
+                            </IconButton>
+                        </motion.div>
+                        <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
+                            <IconButton color="primary" href="https://linkedin.com/in/timo-zander-6446a322a" target="_blank" title="LinkedIn">
+                                <LinkedInIcon fontSize="large"/>
+                            </IconButton>
+                        </motion.div>
+                        <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
+                            <IconButton color="primary" href="https://instagram.com/dieser_zander" target="_blank" title="Instagram">
+                                <InstagramIcon fontSize="large"/>
+                            </IconButton>
+                        </motion.div>
+                        <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
+                            <IconButton color="primary" href="https://github.com/DerZander" target="_blank" title="Github">
+                                <GithubIcon fontSize="large"/>
+                            </IconButton>
+                        </motion.div>
+                        <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
+                            <IconButton color="primary" href="https://facebook.com/100008370105149" target="_blank" title="Facebook">
+                                <FacebookIcon fontSize="large"/>
+                            </IconButton>
+                        </motion.div>
+                    </Stack>
                 </motion.div>
             </Box>
         </Box>

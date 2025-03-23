@@ -5,6 +5,7 @@ import {HashRouter, Route, Routes} from "react-router";
 import {routes} from "./routes.jsx";
 import Navigation from "./components/navigation.jsx";
 import {Box, Typography} from "@mui/material";
+import LandingPage from "./pages/LandingPage.jsx";
 
 export default function App() {
     return (
@@ -16,6 +17,8 @@ export default function App() {
                         {routes.map((route) => (
                             <Route key={route.route} path={route.route} element={route.component}/>
                         ))}
+                        <Route path="*" element={<Typography variant="h1">404 - Seite nicht gefunden</Typography>}/>
+                        <Route path="/" element={<LandingPage/>}/>
                     </Routes>
                 </Box>
                 <Box component="footer" sx={{width: "100%", textAlign: "center", py: 2, mt: 4}}>

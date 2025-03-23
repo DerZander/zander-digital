@@ -18,6 +18,8 @@ export default function LandingPage() {
         m: 1,
         minWidth: 60,
         minHeight: 60,
+        position: "relative",
+        overflow: "visible",
     };
 
     return (
@@ -67,9 +69,42 @@ export default function LandingPage() {
                     </Typography>
 
                     {routes.sort((a, b) => a.id - b.id).map((action) => (
-                        <Button key={action.name} sx={navigationButtonStyle} variant="contained" size="large" onClick={() => navigate(action.route)}>
-                            {action.icon}
-                        </Button>
+                        <Box
+                            key={action.name}
+                            sx={{position: "relative", display: "inline-block", m: 1}}
+                        >
+                            <Button
+                                sx={navigationButtonStyle}
+                                variant="contained"
+                                size="large"
+                                onClick={() => navigate(action.route)}
+                            >
+                                {action.icon}
+                            </Button>
+                            <Typography
+                                variant="caption"
+                                sx={{
+                                    position: "absolute",
+                                    top: "110%",
+                                    left: "50%",
+                                    transform: "translateX(-50%)",
+                                    whiteSpace: "nowrap",
+                                    opacity: 0,
+                                    transition: "opacity 0.3s",
+                                    pointerEvents: "none",
+                                }}
+                                className="button-label"
+                            >
+                                {action.name}
+                            </Typography>
+                            <style>
+                                {`
+                                button:hover + .button-label {
+                                    opacity: 1;
+                                }
+                            `}
+                            </style>
+                        </Box>
                     ))}
                 </motion.div>
             </Box>

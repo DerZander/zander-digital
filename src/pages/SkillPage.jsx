@@ -6,6 +6,7 @@ import CropDinIcon from '@mui/icons-material/CropDin';
 import {AccountTree as AccountTreeIcon, Build as BuildIcon, Cloud as CloudIcon, Code as CodeIcon, ExpandMore as ExpandMoreIcon, Star as StarIcon, Storage as StorageIcon, Terminal as TerminalIcon,} from "@mui/icons-material";
 
 import {keyframes} from '@emotion/react';
+import {blueGrey} from "@mui/material/colors";
 
 const rainbowAnimation = keyframes`
     0% {
@@ -72,6 +73,12 @@ const getBorderStyle = (level) => {
     }
 };
 
+const cardColor = (color) => {
+    const use_color = false;
+    return use_color ? color : blueGrey[900];
+
+}
+
 function FlippingSkillCard({skill}) {
     const [flipped, setFlipped] = useState(false);
     const level = Math.floor(Math.log2(skill.xp));
@@ -126,7 +133,7 @@ function FlippingSkillCard({skill}) {
                             width: "100%",
                             height: "100%",
                             borderRadius: 3,
-                            bgcolor: skill.color,
+                            bgcolor: cardColor(skill.color),
                             color: "#fff",
                             display: "flex",
                             alignItems: "center",

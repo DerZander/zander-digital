@@ -5,7 +5,7 @@ import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import * as React from "react";
-import PersonPage from "./pages/person.jsx";
+import PersonPage from "./pages/PersonPage.jsx";
 import Projects from "./pages/projects.jsx";
 import Gaming from "./pages/gaming.jsx";
 import Contact from "./pages/contact.jsx";

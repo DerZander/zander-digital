@@ -36,7 +36,7 @@ function OhrwurmPlayer() {
     return (
         <Box display="flex" alignItems="center" justifyContent="center" mt={4}>
             <IconButton onClick={handleBack} sx={{ml: 2, top: "20px"}}>
-                <KeyboardArrowLeft fontSize="large"/>
+                <KeyboardArrowLeft fontSize="large" sx={{color: "#ffffff"}}/>
             </IconButton>
 
             <Box textAlign="center">
@@ -53,7 +53,7 @@ function OhrwurmPlayer() {
             </Box>
 
             <IconButton onClick={handleNext} sx={{ml: 2, top: "20px"}}>
-                <KeyboardArrowRight fontSize="large"/>
+                <KeyboardArrowRight fontSize="large" sx={{color: "#ffffff"}}/>
             </IconButton>
         </Box>
     );

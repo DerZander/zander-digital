@@ -10,6 +10,21 @@ export default function Navigation() {
 
     return (
         <>
+            <style>{`
+                body { 
+                    overflow-x: hidden; 
+                    overflow-y: auto; 
+                    margin: 0; 
+                    padding: 0;
+                }
+                html, body, #root {
+                    height: 100%;
+                    max-width: 100vw;
+                }
+                * {
+                    box-sizing: border-box;
+                }
+            `}</style>
             <SpeedDial
                 ariaLabel="Navigation Menü"
                 sx={{position: 'fixed', bottom: 24, right: 24}}

@@ -1,13 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import './index.css'
-// import App from "./App.jsx";
+import './index.css';
 import {HashRouter, Route, Routes} from "react-router";
 import {routes} from "./routes.jsx";
 import Navigation from "./components/navigation.jsx";
-
-// const root = document.getElementById("root");
-
 
 export default function App() {
     return (
@@ -19,9 +15,8 @@ export default function App() {
                 ))}
             </Routes>
         </HashRouter>
-    )
+    );
 }
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App/>);

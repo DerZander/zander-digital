@@ -202,9 +202,9 @@ function SkillGridPage() {
 
     return (
         <Box p={3}>
-            <Typography variant="h4" gutterBottom>
-                🛠 Meine Skills
-            </Typography>
+            {/*<Typography variant="h4" gutterBottom>*/}
+            {/*    🛠 Meine Skills*/}
+            {/*</Typography>*/}
             <Grid container spacing={1} justifyContent="center">
                 {sortedSkills.map((skill, index) => (
                     <Grid item xs={6} sm={4} md={3} key={index} display="flex" justifyContent="center">

@@ -29,11 +29,13 @@ const skillIcon = (icon) => {
 }
 
 const calculateLevelFromXP = (xp) => {
+    if (!xp || xp < 1) return 0;
     const level = Math.floor(Math.log2(xp));
     return level >= 10 ? "Max." : level;
 }
 
 const calculateProgressToNextLevel = (xp) => {
+    if (!xp || xp < 1) return 0;
     const level = Math.floor(Math.log2(xp));
     if (level >= 10) return 100;
     const currentLevelXP = Math.pow(2, level);
@@ -52,18 +54,23 @@ function FlippingSkillCard({skill}) {
                 perspective: "1000px",
                 width: "220px",
                 height: "180px",
-                margin: "10px"
+                margin: "10px",
+                position: "relative"
             }}
             onClick={() => setFlipped(!flipped)}
         >
             <Box
                 sx={{
-                    position: "relative",
+                    position: "absolute",
                     width: "100%",
                     height: "100%",
                     transformStyle: "preserve-3d",
                     transition: "transform 0.8s",
-                    transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)"
+                    transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+                    transformOrigin: "center center",
+                    top: 0,
+                    left: 0,
+                    willChange: "transform"
                 }}
             >
                 {/* Front Side */}
@@ -73,6 +80,7 @@ function FlippingSkillCard({skill}) {
                         width: "100%",
                         height: "100%",
                         backfaceVisibility: "hidden",
+
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -80,11 +88,11 @@ function FlippingSkillCard({skill}) {
                         bgcolor: skill.color,
                         color: "#fff",
                         borderRadius: 3,
-                        padding: 1
+                        padding: 1,
+                        top: 0,
+                        left: 0
                     }}
                 >
-                    {/* HIER wurde was geändert
-                    */}
                     {isMaxLevel && (
                         <StarIcon sx={{position: "absolute", top: 8, right: 8, color: "gold", fontSize: 30}}/>
                     )}
@@ -103,10 +111,14 @@ function FlippingSkillCard({skill}) {
                         width: "100%",
                         height: "100%",
                         backfaceVisibility: "hidden",
+
                         transform: "rotateY(180deg)",
+                        transformOrigin: "center center",
                         bgcolor: "#f5f5f5",
                         borderRadius: 3,
-                        padding: 1
+                        padding: 1,
+                        top: 0,
+                        left: "-8%"
                     }}
                 >
                     <CardContent sx={{padding: "8px !important"}}>
@@ -147,7 +159,7 @@ function SkillGridPage() {
             </Typography>
             <Grid container spacing={1} justifyContent="center">
                 {skills.map((skill, index) => (
-                    <Grid item xs={6} sm={4} md={3} key={index} display="flex" justifyContent="center">
+                    <Grid item xs={6} sm={4} md={2} key={index} display="flex" justifyContent="center">
                         <FlippingSkillCard skill={skill} index={index}/>
                     </Grid>
                 ))}

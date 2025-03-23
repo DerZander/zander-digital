@@ -64,8 +64,6 @@ export default function PersonPage() {
     return (
         <Box
             sx={{
-                width: "100%",
-                minHeight: "100vh",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -110,10 +108,6 @@ export default function PersonPage() {
             </Stack>
 
             <OhrwurmPlayer/>
-
-            {/*<Typography variant="caption" mt={6} color="grey.500">*/}
-            {/*    PS: Wenn du das hier liest, lade ich dich auf eine virtuelle Runde DnD ein 😉*/}
-            {/*</Typography>*/}
         </Box>
     );
 }

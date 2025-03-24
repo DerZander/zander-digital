@@ -1,9 +1,8 @@
 import {Avatar, Box, Card, CardContent, Grid, LinearProgress, Typography,} from "@mui/material";
-import {useState} from "react";
-import skills from "../data/skills.json";
+import {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import {AccountTree as AccountTreeIcon, Build as BuildIcon, Cloud as CloudIcon, Code as CodeIcon, Star as StarIcon, Storage as StorageIcon, Terminal as TerminalIcon,} from "@mui/icons-material";
-
+import skills from "../data/skills";
 import {keyframes} from '@emotion/react';
 import {blue, blueGrey} from "@mui/material/colors";
 
@@ -33,7 +32,7 @@ const blueGlowAnimation = keyframes`
 
 const skillIcon = (category) => {
     switch (category) {
-        case "Code":
+        case "Language":
             return <CodeIcon/>;
         case "Database":
             return <StorageIcon/>;
@@ -43,7 +42,7 @@ const skillIcon = (category) => {
             return <TerminalIcon/>;
         case "Service":
             return <CloudIcon/>;
-        case "Tools":
+        case "Tool":
             return <BuildIcon/>;
         default:
             return <CodeIcon/>;
@@ -51,32 +50,41 @@ const skillIcon = (category) => {
 }
 
 const calculateLevelFromXP = (xp) => {
-    if (!xp || xp < 1) return 0;
-    const level = Math.floor(Math.log2(xp));
-    return level >= 10 ? "Max." : level;
-}
+    return Math.floor(xp / 100); // Beispiel: 0-99 = Level 0, 100-199 = Level 1, ...
+};
 
 const calculateProgressToNextLevel = (xp) => {
     if (!xp || xp < 1) return 0;
-    const level = Math.floor(Math.log2(xp));
-    if (level >= 10) return 100;
-    const currentLevelXP = Math.pow(2, level);
-    const nextLevelXP = Math.pow(2, level + 1);
-    const progress = ((xp - currentLevelXP) / (nextLevelXP - currentLevelXP)) * 100;
-    return progress > 100 ? 100 : progress;
-}
 
-const getBorderStyle = (level) => {
+    const level = calculateLevelFromXP(xp);
+    if (level >= 10) return 100;
+
+    const currentLevelStartXP = level * 100;
+    const nextLevelStartXP = (level + 1) * 100;
+    const currentProgressXP = xp - currentLevelStartXP;
+    const nextLevelXPGap = nextLevelStartXP - currentLevelStartXP;
+
+    const progress = (currentProgressXP / nextLevelXPGap) * 100;
+    return progress > 100 ? 100 : progress;
+};
+
+const getBorderStyle = (xp) => {
+    const level = calculateLevelFromXP(xp);
+    console.log("Level: ", level);
     if (level >= 10) {
+        // Regenbogen-Gradient für maximale Stufe
         return "linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet, red)";
-    } else if (level >= 8) {
+    } else if (level >= 9) {
+        // Gold für Level 9
         return "gold";
-    } else if (level >= 6) {
+    } else if (level >= 8) {
+        // Silber für Level 8
         return "silver";
-    } else if (level >= 4) {
-        return "#b87333"; // Kupferfarbton
+    } else if (level >= 6) {
+        // Kupferfarben ab Level 6
+        return "#b87333";
     } else {
-        return "none";
+        return "none"; // Kein besonderer Rahmen
     }
 };
 
@@ -88,8 +96,8 @@ const cardColor = (color) => {
 
 function FlippingSkillCard({skill}) {
     const [flipped, setFlipped] = useState(false);
-    const level = Math.floor(Math.log2(skill.xp));
-    const borderStyle = getBorderStyle(level);
+    const borderStyle = getBorderStyle(skill.xp);
+
 
     return (
         <Box
@@ -150,12 +158,12 @@ function FlippingSkillCard({skill}) {
                             boxSizing: "border-box"
                         }}
                     >
-                        {level >= 10 && (
+                        {skill.is_favorite && (
                             <StarIcon sx={{position: "absolute", top: 8, right: 8, color: "gold", fontSize: 30}}/>
                         )}
                         <CardContent sx={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "8px !important", width: "100%", height: "100%", boxSizing: "border-box"}}>
-                            <Avatar sx={{bgcolor: "#fff", color: skill.color, mb: 1}}>
-                                {skillIcon(skill.category)}
+                            <Avatar sx={{bgcolor: "#fff", color: cardColor(skill.color), mb: 1}}>
+                                {skillIcon(skill.category.name)}
                             </Avatar>
                             <Typography variant="h6" textAlign="center">{skill.name}</Typography>
                         </CardContent>
@@ -184,7 +192,7 @@ function FlippingSkillCard({skill}) {
                         <Typography variant="subtitle1" mb={0.5}>{skill.name}</Typography>
                         <Box display="flex" justifyContent="space-between" alignItems="center" mt={0.5} mb={0.5}>
                             <Typography variant="caption">Seit: {skill.since}</Typography>
-                            <Typography variant="caption" color="text.secondary" sx={{color: "#fff"}}>Level {calculateLevelFromXP(skill.xp)}</Typography>
+                            <Typography variant="caption" color="text.secondary" sx={{color: "#fff"}}>Level {calculateLevelFromXP(skill.xp) >= 10 ? "Max." : calculateLevelFromXP(skill.xp)}</Typography>
                         </Box>
                         <LinearProgress
                             variant="determinate"
@@ -198,14 +206,14 @@ function FlippingSkillCard({skill}) {
                                 },
                             }}
                         />
-                        {skill.projects.length > 0 && (
-                            <>
-                                <Typography variant="caption" mt={0.5}>Projekte: <br/></Typography>
-                                {skill.projects.map((project, i) => (
-                                    <Typography key={i} variant="caption">- {project} <br/></Typography>
-                                ))}
-                            </>
-                        )}
+                        {/*{skill.projects.length > 0 && (*/}
+                        {/*    <>*/}
+                        {/*        <Typography variant="caption" mt={0.5}>Projekte: <br/></Typography>*/}
+                        {/*        {skill.projects.map((project, i) => (*/}
+                        {/*            <Typography key={i} variant="caption">- {project} <br/></Typography>*/}
+                        {/*        ))}*/}
+                        {/*    </>*/}
+                        {/*)}*/}
                     </CardContent>
                 </Card>
             </Box>
@@ -214,9 +222,20 @@ function FlippingSkillCard({skill}) {
 }
 
 function SkillGridPage() {
-    const sortedSkills = [...skills]
-        .sort((a, b) => Math.floor(Math.log2(b.xp)) - Math.floor(Math.log2(a.xp)))
-        .sort((a, b) => (b.isFavorite ? 1 : 0) - (a.isFavorite ? 1 : 0));
+    const [dbSkills, setDbSkills] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/api/skills")  // Im Docker ggf. Backend-IP oder Domain
+            .then((res) => res.json())
+            .then((data) => setDbSkills(data))
+            .catch((err) => console.error(err));
+    }, []);
+
+    console.log("DB Skill: ", dbSkills[0]);
+    console.log("Static Skill: ", skills[0]);
+    const sortedSkills = [...dbSkills]
+        .sort((a, b) => (b.is_favorite ? 1 : 0) - (a.is_favorite ? 1 : 0))
+        .sort((a, b) => Math.floor(Math.log2(b.xp)) - Math.floor(Math.log2(a.xp)));
 
     return (
         <Box p={3}>

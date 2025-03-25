@@ -1,7 +1,7 @@
 import {Avatar, Box, Chip, IconButton, Stack, Typography} from "@mui/material";
 import meImage from "../assets/images/me.jpeg";
 import {motion} from "framer-motion";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
@@ -16,14 +16,25 @@ const hobbies = [
     "☕ Kaffee",
 ];
 
-const songs = [
-    {name: "Wackelkontakt", id: "4x7j9ed3FRH6CHj27kiTQ3"},
-    {name: "ALL IN (Lieblingslieder)", id: "3VIEbpdr64a1mNSa8MqBAm"},
-    {name: "Immer Wieder", id: "2SuOdpmDdTk4U0aWH5SQDW"},
+const const_songs = [
+    {name: "Wackelkontakt", spotify_id: "4x7j9ed3FRH6CHj27kiTQ3"},
+    {name: "ALL IN (Lieblingslieder)", spotify_id: "3VIEbpdr64a1mNSa8MqBAm"},
+    {name: "Immer Wieder", spotify_id: "2SuOdpmDdTk4U0aWH5SQDW"},
 ];
 
 function OhrwurmPlayer() {
     const [currentSong, setCurrentSong] = useState(0);
+    const [dbSongs, setDbSongs] = useState([]);
+
+
+    useEffect(() => {
+        fetch("http://localhost:5000/api/earworms/active")  // Im Docker ggf. Backend-IP oder Domain
+            .then((res) => res.json())
+            .then((data) => setDbSongs(data))
+            .catch((err) => console.error(err));
+    }, []);
+
+    const songs = dbSongs.length > 0 ? dbSongs : const_songs;
 
     const handleNext = () => {
         setCurrentSong((prev) => (prev + 1) % songs.length);
@@ -42,7 +53,7 @@ function OhrwurmPlayer() {
             <Box textAlign="center">
                 <Typography variant="h6" mb={1}>Aktueller Ohrwurm:</Typography>
                 <iframe
-                    src={`https://open.spotify.com/embed/track/${songs[currentSong].id}?utm_source=generator`}
+                    src={`https://open.spotify.com/embed/track/${songs[currentSong].spotify_id}?utm_source=generator`}
                     width="300"
                     height="80"
                     frameBorder="0"

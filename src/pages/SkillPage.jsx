@@ -224,7 +224,7 @@ function SkillGridPage() {
     const [dbSkills, setDbSkills] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/skills")  // Im Docker ggf. Backend-IP oder Domain
+        fetch("http://127.0.0.1:5000/api/skills/")  // Im Docker ggf. Backend-IP oder Domain
             .then((res) => res.json())
             .then((data) => setDbSkills(data))
             .catch((err) => console.error(err));

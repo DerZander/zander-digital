@@ -1,5 +1,4 @@
 from database.database import db
-from datetime import datetime
 
 
 class BaseModel(db.Model):
@@ -7,19 +6,20 @@ class BaseModel(db.Model):
 
     def as_dict(self, include_relationships=True, recurse_level=1):
         result = {}
-        # Spalten hinzufügen
         for column in self.__table__.columns:
             value = getattr(self, column.name)
-            if hasattr(value, 'isoformat'):  # Datum/Datenumwandlung
+            if hasattr(value, 'isoformat'):
                 value = value.isoformat()
             result[column.name] = value
 
-        # Beziehungen auflösen, falls gewünscht
         if include_relationships and recurse_level > 0:
             for rel in self.__mapper__.relationships:
                 related_obj = getattr(self, rel.key)
                 if related_obj is None:
                     result[rel.key] = None
+                elif hasattr(related_obj, 'all'):
+                    # Handle dynamic relationships
+                    result[rel.key] = [item.as_dict(include_relationships=False) for item in related_obj.all()]
                 elif isinstance(related_obj, list):
                     result[rel.key] = [item.as_dict(include_relationships=False) for item in related_obj]
                 else:

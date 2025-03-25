@@ -6,6 +6,7 @@ class Branch(BaseModel):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
     achievements = db.relationship('Achievement', backref='branch', lazy=True)  # Das ist wichtig!
+    projects = db.relationship('Project', backref='branch', lazy=True)  # Das ist wichtig!
 
 
 class AchievementCategory(BaseModel):

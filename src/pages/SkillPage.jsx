@@ -2,7 +2,6 @@ import {Avatar, Box, Card, CardContent, Grid, LinearProgress, Typography,} from 
 import {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import {AccountTree as AccountTreeIcon, Build as BuildIcon, Cloud as CloudIcon, Code as CodeIcon, Star as StarIcon, Storage as StorageIcon, Terminal as TerminalIcon,} from "@mui/icons-material";
-import skills from "../data/skills";
 import {keyframes} from '@emotion/react';
 import {blue, blueGrey} from "@mui/material/colors";
 
@@ -231,8 +230,6 @@ function SkillGridPage() {
             .catch((err) => console.error(err));
     }, []);
 
-    console.log("DB Skill: ", dbSkills[0]);
-    console.log("Static Skill: ", skills[0]);
     const sortedSkills = [...dbSkills]
         .sort((a, b) => (b.is_favorite ? 1 : 0) - (a.is_favorite ? 1 : 0))
         .sort((a, b) => Math.floor(Math.log2(b.xp)) - Math.floor(Math.log2(a.xp)));

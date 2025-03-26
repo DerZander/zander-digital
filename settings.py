@@ -7,5 +7,5 @@ RESTPLUS_VAL = True
 RESTPLUS_MASK_SWAGGER = False
 
 CORS_ORIGINS = ["https://zander.digital", "http://localhost:5173"]
-SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://TnDD3Djmg4EG7YvFjvG:Q91PRyp8ScCwuS4Qa1jN4Swm9dgzMwcaEY3ptsBdF@zander.digital:3306/zander.digital'
+SQLALCHEMY_DATABASE_URI = ''
 SQLALCHEMY_TRACK_MODS = False

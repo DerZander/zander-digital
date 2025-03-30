@@ -8,7 +8,7 @@ flask_app = Flask(__name__)
 
 
 def configure_app(app):
-    CORS(app, origins=settings.CORS_ORIGINS)
+    CORS(app, origins=[settings.CORS_ORIGINS, "http://localhost:5173"])
     app.config['SQLALCHEMY_DATABASE_URI'] = settings.SQLALCHEMY_DATABASE_URI
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = settings.SQLALCHEMY_TRACK_MODS
 

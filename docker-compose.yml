@@ -1,24 +1,19 @@
-version: '3'
-
 services:
-  backend:
+  zander-digital-backend:
     build: .
     ports:
       - "5000:5000"
+    environment:
+      DOCKERIZED: "1"  # 👈
+      FLASK_HOST: "0.0.0.0"
+      FLASK_PORT: 5000
+      FLASK_DEBUG: "True"
+      FLASK_THREADED: "True"
+      RESTPLUS_SWAGGER_EXPANSION: "list"
+      RESTPLUS_VALIDATE: "True"
+      RESTPLUS_MASK_SWAGGER: "False"
+      CORS_ORIGINS: "https://zander.digital"
+      SQLALCHEMY_DATABASE_URI: "mysql+pymysql://TnDD3Djmg4EG7YvFjvG:Q91PRyp8ScCwuS4Qa1jN4Swm9dgzMwcaEY3ptsBdF@zander.digital:3306/zander.digital"
+      SQLALCHEMY_TRACK_MODS: "False"
     volumes:
       - .:/app
-    depends_on:
-      - db
-    environment:
-      - FLASK_ENV=development
-
-  db:
-    image: mariadb:latest
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: zanderdb
-      MYSQL_USER: zander
-      MYSQL_PASSWORD: secret
-    ports:
-      - "3306:3306"

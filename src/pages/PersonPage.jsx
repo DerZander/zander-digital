@@ -4,6 +4,7 @@ import {motion} from "framer-motion";
 import {useEffect, useState} from "react";
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import {API_URL} from "../config.js";
 
 const hobbies = [
     "🔥 Feuerwehr",
@@ -28,7 +29,7 @@ function OhrwurmPlayer() {
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/earworms/active")  // Im Docker ggf. Backend-IP oder Domain
+        fetch(`${API_URL}/earworms/active`)  // Im Docker ggf. Backend-IP oder Domain
             .then((res) => res.json())
             .then((data) => setDbSongs(data))
             .catch((err) => console.error(err));

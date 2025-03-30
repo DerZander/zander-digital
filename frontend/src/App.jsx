@@ -1,11 +1,12 @@
 import './App.css'
-import NavSpeedDial from "./components/navSpeedDial.jsx";
+
+// import NavSpeedDial from "./components/navSpeedDial.jsx";
 
 function App() {
 
     return (
         <>
-            <NavSpeedDial/>
+            {/*<NavSpeedDial/>*/}
             {/*<CvTimeline/>*/}
         </>
     )

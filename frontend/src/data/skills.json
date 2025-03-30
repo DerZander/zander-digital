@@ -1,0 +1,205 @@
+[
+  {
+    "name": "Python",
+    "xp": 1048,
+    "description": "Python is a high-level, interpreted, object-oriented language focused on readability and rapid development.",
+    "icon": "Code",
+    "since": 2017,
+    "isFavorite": true,
+    "projects": [
+      "Utils",
+      "Advent of Code"
+    ],
+    "color": "#3572A5",
+    "category": "Language"
+  },
+  {
+    "name": "Docker",
+    "xp": 600,
+    "description": "Java is a robust, class-based, object-oriented programming language used in backend systems and Android development.",
+    "icon": "Code",
+    "since": 2016,
+    "isFavorite": false,
+    "projects": [
+      "Spring Boot APIs",
+      "Backend Services"
+    ],
+    "color": "#264de4",
+    "category": "Service"
+  },
+  {
+    "name": "GML",
+    "xp": 80,
+    "description": "GameMaker Language is a scripting language used in the GameMaker Studio game engine.",
+    "icon": "Gamepad",
+    "since": 2014,
+    "projects": [
+      "GameMaker Projects"
+    ],
+    "color": "#8f0000",
+    "category": "Language"
+  },
+  {
+    "name": "Java",
+    "level": 85,
+    "xp": 860,
+    "description": "Java is a robust, class-based, object-oriented programming language used in backend systems and Android development.",
+    "icon": "Code",
+    "since": 2016,
+    "isFavorite": false,
+    "projects": [
+      "Spring Boot APIs",
+      "Backend Services"
+    ],
+    "color": "#b07219",
+    "category": "Language"
+  },
+  {
+    "name": "Nodered",
+    "level": 75,
+    "description": "Node-RED is a low-code development tool for event-driven applications.",
+    "icon": "Extension",
+    "since": 2021,
+    "projects": [
+      "IoT Automations"
+    ],
+    "color": "#8f0000",
+    "category": "Tool"
+  },
+  {
+    "name": "JS",
+    "level": 90,
+    "description": "JavaScript is a dynamic, interpreted language commonly used for client-side web development.",
+    "icon": "Code",
+    "since": 2015,
+    "projects": [
+      "Web Frontends",
+      "React Apps"
+    ],
+    "color": "#f7df1e",
+    "category": "Language"
+  },
+  {
+    "name": "CSS",
+    "level": 85,
+    "description": "CSS is used to style and layout web pages including responsive designs and animations.",
+    "icon": "Brush",
+    "since": 2015,
+    "projects": [
+      "All Frontend Projects"
+    ],
+    "color": "#264de4",
+    "category": "Language"
+  },
+  {
+    "name": "HTML",
+    "level": 90,
+    "description": "HTML is the standard markup language for creating web pages and applications.",
+    "icon": "Language",
+    "since": 2015,
+    "projects": [
+      "All Web Projects"
+    ],
+    "color": "#e34c26",
+    "category": "Language"
+  },
+  {
+    "name": "SQL",
+    "level": 80,
+    "description": "SQL is used for managing data in relational database systems.",
+    "icon": "Storage",
+    "since": 2016,
+    "projects": [
+      "Data Analysis",
+      "Web Apps"
+    ],
+    "color": "#4479A1",
+    "category": "Language"
+  },
+  {
+    "name": "React",
+    "level": 90,
+    "description": "React is a JavaScript library for building user interfaces with components.",
+    "icon": "Code",
+    "since": 2019,
+    "projects": [
+      "Portfolio",
+      "Firebook",
+      "Jugendfeuerwehr-Webseite"
+    ],
+    "color": "#61dafb",
+    "category": "Framework"
+  },
+  {
+    "name": "Vue.js",
+    "level": 70,
+    "description": "Vue.js is a progressive framework for building user interfaces.",
+    "icon": "Code",
+    "since": 2020,
+    "projects": [
+      "Kleinere Frontend-Prototypen"
+    ],
+    "color": "#42b883",
+    "category": "Framework"
+  },
+  {
+    "name": "Spring Boot",
+    "level": 85,
+    "description": "Spring Boot simplifies building production-ready Spring-based applications.",
+    "icon": "Build",
+    "since": 2018,
+    "projects": [
+      "Firebook Backend",
+      "Leistungsspangen-Backend"
+    ],
+    "color": "#6db33f",
+    "category": "Framework"
+  },
+  {
+    "name": "Flask",
+    "level": 70,
+    "description": "Flask is a lightweight Python web framework for rapid development.",
+    "icon": "Terminal",
+    "since": 2017,
+    "projects": [
+      "Kleinere APIs"
+    ],
+    "color": "#000000",
+    "category": "Framework"
+  },
+  {
+    "name": "Django",
+    "level": 80,
+    "description": "Django is a high-level Python web framework that encourages rapid development.",
+    "icon": "Terminal",
+    "since": 2017,
+    "projects": [
+      "Interne Tools"
+    ],
+    "color": "#092e20",
+    "category": "Framework"
+  },
+  {
+    "name": "Bootstrap",
+    "level": 85,
+    "description": "Bootstrap is a popular CSS framework for developing responsive and mobile-first websites.",
+    "icon": "ViewModule",
+    "since": 2018,
+    "projects": [
+      "Portfolio Seiten"
+    ],
+    "color": "#563d7c",
+    "category": "Framework"
+  },
+  {
+    "name": "PostgreSQL",
+    "level": 75,
+    "description": "PostgreSQL is a powerful, open-source relational database system.",
+    "icon": "Storage",
+    "since": 2017,
+    "projects": [
+    ],
+    "color": "#336791",
+    "category": "Database"
+  }
+]

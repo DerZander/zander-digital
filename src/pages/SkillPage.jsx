@@ -4,6 +4,7 @@ import {motion} from "framer-motion";
 import {AccountTree as AccountTreeIcon, Build as BuildIcon, Cloud as CloudIcon, Code as CodeIcon, Star as StarIcon, Storage as StorageIcon, Terminal as TerminalIcon,} from "@mui/icons-material";
 import {keyframes} from '@emotion/react';
 import {blue, blueGrey} from "@mui/material/colors";
+import {API_URL} from "../config.js";
 
 const rainbowAnimation = keyframes`
     0% {
@@ -224,7 +225,7 @@ function SkillGridPage() {
     const [dbSkills, setDbSkills] = useState([]);
 
     useEffect(() => {
-        fetch("http://127.0.0.1:5000/api/skills/")  // Im Docker ggf. Backend-IP oder Domain
+        fetch(`${API_URL}/api/skills/`)  // Im Docker ggf. Backend-IP oder Domain
             .then((res) => res.json())
             .then((data) => setDbSkills(data))
             .catch((err) => console.error(err));

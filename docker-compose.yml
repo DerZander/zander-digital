@@ -4,17 +4,17 @@ services:
   frontend:
     build:
       context: ./frontend
+      args:
+        VITE_API_URL: https://zander.digital/api
     ports:
       - "3000:80"
-    environment:
-      - VITE_API_URL=http://zander.digital/api
     depends_on:
       - backend
 
   backend:
     build:
-      context: ./backend       # <- wichtig! Das ist der Build-Kontext
-      dockerfile: Dockerfile   # optional, wenn Datei 'Dockerfile' heißt
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
       - "5000:5000"
     environment:
@@ -29,4 +29,3 @@ services:
       CORS_ORIGINS: "https://zander.digital"
       SQLALCHEMY_DATABASE_URI: ""
       SQLALCHEMY_TRACK_MODS: "False"
-

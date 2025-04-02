@@ -2,7 +2,7 @@ import logging
 
 from flask_restx import Resource, Namespace
 
-from database.models.project import Project
+from backend.database.models import Project
 
 namespace = Namespace('projects', description='Project related operations')
 

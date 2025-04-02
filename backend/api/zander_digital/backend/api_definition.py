@@ -1,6 +1,6 @@
 from flask_restx import fields
 
-from api.backend_api import api
+from backend.api.backend_api import api
 
 skill_category = api.model('SkillCategory', {
     "id": fields.Integer(required=True, description='The skill category identifier'),

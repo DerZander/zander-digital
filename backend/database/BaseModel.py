@@ -1,4 +1,4 @@
-from database.database import db
+from backend.database.database import db
 
 
 class BaseModel(db.Model):

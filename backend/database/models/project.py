@@ -1,5 +1,5 @@
-from database.BaseModel import BaseModel
-from database.database import db
+from backend.database.BaseModel import BaseModel
+from backend.database.database import db
 
 project_skill_association = db.Table(
     'project_skill_association',

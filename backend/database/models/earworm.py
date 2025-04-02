@@ -1,10 +1,10 @@
-from database.BaseModel import BaseModel
-from database.database import db
 from datetime import datetime
 
+from backend.database.BaseModel import BaseModel
+from backend.database.database import db
 
 
-class Earworms(BaseModel):
+class Earworm(BaseModel):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
     spotify_id = db.Column(db.String(120), nullable=False)

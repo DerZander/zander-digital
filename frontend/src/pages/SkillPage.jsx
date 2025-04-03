@@ -49,7 +49,7 @@ const skillIcon = (category) => {
     }
 }
 
-const calculateLevelFromXP = (xp) => {
+export const calculateLevelFromXP = (xp) => {
     return Math.floor(xp / 100); // Beispiel: 0-99 = Level 0, 100-199 = Level 1, ...
 };
 
@@ -68,9 +68,8 @@ const calculateProgressToNextLevel = (xp) => {
     return progress > 100 ? 100 : progress;
 };
 
-const getBorderStyle = (xp) => {
+export const getLevelColor = (xp) => {
     const level = calculateLevelFromXP(xp);
-    console.log("Level: ", level);
     if (level >= 10) {
         // Regenbogen-Gradient für maximale Stufe
         return "linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet, red)";
@@ -96,7 +95,7 @@ const cardColor = (color) => {
 
 function FlippingSkillCard({skill}) {
     const [flipped, setFlipped] = useState(false);
-    const borderStyle = getBorderStyle(skill.xp);
+    const borderStyle = getLevelColor(skill.xp);
 
 
     return (
@@ -206,6 +205,9 @@ function FlippingSkillCard({skill}) {
                                 },
                             }}
                         />
+                        <Box display="flex" justifyContent="space-between" alignItems="center" mt={1}>
+                            <Typography variant="caption" color="text.secondary" sx={{color: "#fff"}}>{skill.description}</Typography>
+                        </Box>
                         {/*{skill.projects.length > 0 && (*/}
                         {/*    <>*/}
                         {/*        <Typography variant="caption" mt={0.5}>Projekte: <br/></Typography>*/}

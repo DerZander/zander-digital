@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from backend.database.BaseModel import BaseModel
-from backend.database.database import db
+from database.BaseModel import BaseModel
+from database.database import db
 
 
 class Earworm(BaseModel):

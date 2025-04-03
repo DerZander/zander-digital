@@ -1,6 +1,5 @@
+from database.models.education import Education
 from flask_restx import Resource, Namespace
-
-from backend.database.models.education import Education
 
 namespace = Namespace('education', description='Education related operations')
 

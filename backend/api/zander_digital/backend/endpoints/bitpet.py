@@ -1,7 +1,6 @@
+from database.database import db
+from database.models.bitpet import Bitpet
 from flask_restx import Namespace, Resource, reqparse
-
-from backend.database.database import db
-from backend.database.models.bitpet import Bitpet
 
 namespace = Namespace('bitpet', description='Interaktion mit dem Bitpet')
 

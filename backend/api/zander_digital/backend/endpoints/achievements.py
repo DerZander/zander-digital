@@ -1,6 +1,5 @@
+from database.models import Achievement
 from flask_restx import Namespace, Resource, fields
-
-from backend.database.models import Achievement
 
 namespace = Namespace('achievements', description='Achievements related operations')
 

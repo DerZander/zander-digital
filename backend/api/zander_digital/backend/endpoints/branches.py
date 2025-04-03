@@ -1,6 +1,5 @@
+from database.models import Branch
 from flask_restx import Namespace, Resource
-
-from backend.database.models import Branch
 
 namespace = Namespace("branches", description="Branches related operations")
 

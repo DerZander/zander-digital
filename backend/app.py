@@ -2,7 +2,7 @@ from flask import Flask, Blueprint
 from flask_cors import CORS
 
 import settings
-from backend.database.database import db
+from database.database import db
 
 flask_app = Flask(__name__)
 

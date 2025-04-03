@@ -1,14 +1,11 @@
 import PersonIcon from "@mui/icons-material/Person";
 import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
 import PsychologyIcon from '@mui/icons-material/Psychology';
-import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import FolderIcon from '@mui/icons-material/Folder';
 import * as React from "react";
 import PersonPage from "./pages/PersonPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import SkillPage from "./pages/SkillPage.jsx";
-import ProjectPageTimeline, {ProjectTimelinePage} from "./pages/ProjectPageTimeline.jsx";
-import ProjectSkillsPage from "./pages/ProjectSkillPage.jsx";
 import ProjectsPage from "./pages/ProjectPage.jsx";
 
 

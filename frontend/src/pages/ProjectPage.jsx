@@ -1,14 +1,20 @@
-import {Box, Card, CardContent, Chip, CircularProgress, Stack, Typography} from "@mui/material";
+import {Box, Card, CardContent, Chip, CircularProgress, Modal, Stack, Typography} from "@mui/material";
 import {useEffect, useState} from "react";
 import {API_URL} from "../config";
 import {motion} from "framer-motion";
+import {SkillCardBackside} from "./SkillPage.jsx";
 import {blueGrey} from "@mui/material/colors";
+import {formatDate} from "../utils/utils.jsx";
+
 
 export default function ProjectsPage() {
     const [projects, setProjects] = useState([]);
     const [branches, setBranches] = useState([]);
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState("Alle");
+
+    const [selectedSkill, setSelectedSkill] = useState(null);
+    const handleCloseModal = () => setSelectedSkill(null);
 
     useEffect(() => {
         fetch(`${API_URL}/projects`)
@@ -89,7 +95,7 @@ export default function ProjectsPage() {
                                         {project.description || "Kein Beschreibungstext"}
                                     </Typography>
                                     <Typography variant="caption">
-                                        {project.start_date} – {project.end_date || "heute"}
+                                        {formatDate(project.start_date)} – {project.end_date ? formatDate(project.end_date) : "heute"}
                                     </Typography>
 
                                     <Stack direction="row" spacing={1} mt={2} flexWrap="wrap">
@@ -99,12 +105,14 @@ export default function ProjectsPage() {
                                                     <Chip
                                                         label={skill.name}
                                                         variant="outlined"
+                                                        onClick={() => setSelectedSkill(skill)}
                                                         sx={{
                                                             borderRadius: "999px",
                                                             fontWeight: 500,
                                                             color: "#fff",
                                                             backgroundColor: blueGrey[500],
                                                             border: 0,
+                                                            cursor: "pointer",
                                                             transition: "all 0.3s ease",
                                                             "&:hover": {
                                                                 transform: "scale(1.05)",
@@ -128,6 +136,28 @@ export default function ProjectsPage() {
                     )}
                 </Box>
             )}
+
+            {/* Skill-Modal */}
+            <Modal open={!!selectedSkill} onClose={handleCloseModal}>
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: 300,
+                        bgcolor: blueGrey[900],
+                        color: "#fff",
+                        borderRadius: 2,
+                        boxShadow: 24,
+                        p: 4,
+                    }}
+                >
+                    {selectedSkill && (
+                        <SkillCardBackside skill={selectedSkill}/>
+                    )}
+                </Box>
+            </Modal>
         </Box>
     );
 }

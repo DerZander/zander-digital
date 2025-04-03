@@ -5,6 +5,7 @@ import {AccountTree as AccountTreeIcon, Build as BuildIcon, Cloud as CloudIcon, 
 import {keyframes} from '@emotion/react';
 import {blue, blueGrey} from "@mui/material/colors";
 import {API_URL} from "../config.js";
+import {formatDate} from "../utils/utils.jsx";
 
 const rainbowAnimation = keyframes`
     0% {
@@ -91,6 +92,38 @@ const cardColor = (color) => {
     const use_color = false;
     return use_color ? color : blueGrey[900];
 
+}
+
+export function SkillCardBackside({skill}) {
+    return (
+        <>
+            {skill.is_favorite && (
+                <StarIcon sx={{position: "absolute", top: 8, right: 8, color: "gold", fontSize: 30}}/>
+            )}
+            <Typography variant="subtitle1" mb={0.5}>{skill.name}</Typography>
+            <Box display="flex" justifyContent="space-between" alignItems="center" mt={0.5} mb={0.5}>
+                <Typography variant="caption">
+                    Seit: {formatDate(skill.since)}
+                </Typography>
+                <Typography variant="caption" color="text.secondary" sx={{color: "#fff"}}>Level {calculateLevelFromXP(skill.xp) >= 10 ? "Max." : calculateLevelFromXP(skill.xp)}</Typography>
+            </Box>
+            <LinearProgress
+                variant="determinate"
+                value={calculateProgressToNextLevel(skill.xp)}
+                sx={{
+                    height: 8,
+                    borderRadius: 4,
+                    animation: `${blueGlowAnimation} 2s infinite alternate`,
+                    "& .MuiLinearProgress-bar": {
+                        backgroundColor: blue[500],
+                    },
+                }}
+            />
+            <Box display="flex" justifyContent="space-between" alignItems="center" mt={1}>
+                <Typography variant="caption" color="text.secondary" sx={{color: "#fff"}}>{skill.description}</Typography>
+            </Box>
+        </>
+    );
 }
 
 function FlippingSkillCard({skill}) {
@@ -188,34 +221,7 @@ function FlippingSkillCard({skill}) {
                     }}
                 >
                     <CardContent sx={{padding: "8px !important", width: "100%", height: "100%", boxSizing: "border-box"}}>
-                        <Typography variant="subtitle1" mb={0.5}>{skill.name}</Typography>
-                        <Box display="flex" justifyContent="space-between" alignItems="center" mt={0.5} mb={0.5}>
-                            <Typography variant="caption">Seit: {skill.since}</Typography>
-                            <Typography variant="caption" color="text.secondary" sx={{color: "#fff"}}>Level {calculateLevelFromXP(skill.xp) >= 10 ? "Max." : calculateLevelFromXP(skill.xp)}</Typography>
-                        </Box>
-                        <LinearProgress
-                            variant="determinate"
-                            value={calculateProgressToNextLevel(skill.xp)}
-                            sx={{
-                                height: 8,
-                                borderRadius: 4,
-                                animation: `${blueGlowAnimation} 2s infinite alternate`,
-                                "& .MuiLinearProgress-bar": {
-                                    backgroundColor: blue[500],
-                                },
-                            }}
-                        />
-                        <Box display="flex" justifyContent="space-between" alignItems="center" mt={1}>
-                            <Typography variant="caption" color="text.secondary" sx={{color: "#fff"}}>{skill.description}</Typography>
-                        </Box>
-                        {/*{skill.projects.length > 0 && (*/}
-                        {/*    <>*/}
-                        {/*        <Typography variant="caption" mt={0.5}>Projekte: <br/></Typography>*/}
-                        {/*        {skill.projects.map((project, i) => (*/}
-                        {/*            <Typography key={i} variant="caption">- {project} <br/></Typography>*/}
-                        {/*        ))}*/}
-                        {/*    </>*/}
-                        {/*)}*/}
+                        <SkillCardBackside skill={skill}/>
                     </CardContent>
                 </Card>
             </Box>

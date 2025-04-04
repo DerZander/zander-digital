@@ -31,11 +31,24 @@ export default function ProjectsPage() {
             .then(data => setBranches(data));
     }, []);
 
-    const filters = ["Alle", ...branches.map(b => b.name)];
+
+    const branchCounts = projects.reduce((acc, project) => {
+        const name = project.branch.name;
+        acc[name] = (acc[name] || 0) + 1;
+        return acc;
+    }, {});
+
+    const filters = [
+        "Alle",
+        ...branches
+            .filter(b => b.projects && b.projects.length > 0)
+            .sort((a, b) => b.projects.length - a.projects.length)
+            .map(b => `${b.name} (${b.projects.length})`)
+    ];
 
     const filtered = (filter === "Alle"
             ? projects
-            : projects.filter(p => p.branch.name === filter)
+            : projects.filter(p => p.branch.name === filter.split(" (")[0])
     ).sort((a, b) => new Date(b.start_date) - new Date(a.start_date));
 
     return (

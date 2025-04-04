@@ -1,4 +1,4 @@
-import {Avatar, Box, Card, CardContent, Grid, LinearProgress, Typography,} from "@mui/material";
+import {Avatar, Box, Card, CardContent, CircularProgress, Grid, LinearProgress, Typography,} from "@mui/material";
 import {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import {AccountTree as AccountTreeIcon, Build as BuildIcon, Cloud as CloudIcon, Code as CodeIcon, Star as StarIcon, Storage as StorageIcon, Terminal as TerminalIcon,} from "@mui/icons-material";
@@ -229,34 +229,66 @@ function FlippingSkillCard({skill}) {
     );
 }
 
+// erstelle mir einen ladebildschirm. es soll ein fisch um einen kreis schwimmen
+
 function SkillGridPage() {
-    const [dbSkills, setDbSkills] = useState([]);
+    const [skills, setSkills] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch(`${API_URL}/skills/`)  // Im Docker ggf. Backend-IP oder Domain
-            .then((res) => res.json())
-            .then((data) => setDbSkills(data))
-            .catch((err) => console.error(err));
+        fetch(`${API_URL}/skills/`)
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error(`Fehler: ${res.status}`);
+                }
+                return res.json();
+            })
+            .then((data) => {
+                setSkills(data);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.error(err);
+                setError("Die Skills konnten nicht geladen werden.");
+                setLoading(false);
+            });
     }, []);
-    const sortedSkills = [...dbSkills]
+
+
+    const sortedSkills = [...skills]
         .sort((a, b) => (b.is_favorite ? 1 : 0) - (a.is_favorite ? 1 : 0))
         .sort((a, b) => Math.floor(Math.log2(b.xp)) - Math.floor(Math.log2(a.xp)));
 
     return (
-        <Box p={3}>
-            <Grid container spacing={1} justifyContent="center">
-                {sortedSkills.map((skill, index) => (
-                    <Grid item xs={6} sm={6} md={3} l={2} key={index} display="flex" justifyContent="center">
-                        <motion.div
-                            initial={{opacity: 0, y: 30}}
-                            animate={{opacity: 1, y: 0}}
-                            transition={{duration: 0.5, delay: index * 0.1}}
-                        >
-                            <FlippingSkillCard skill={skill} index={index}/>
-                        </motion.div>
-                    </Grid>
-                ))}
-            </Grid>
+        <Box p={4}>
+            <Typography variant="h4" align="center" gutterBottom fontWeight="bold">
+                Skills
+            </Typography>
+
+            {loading ? (
+                <Box display="flex" justifyContent="center" mt={6}>
+                    <CircularProgress color="primary"/>
+                </Box>
+            ) : error ? (
+                <Typography color="error" align="center" mt={4}>
+                    {error}
+                </Typography>
+            ) : (
+                <Grid container spacing={1} justifyContent="center">
+                    {sortedSkills.map((skill, index) => (
+                        <Grid item xs={6} sm={6} md={3} l={2} key={index} display="flex" justifyContent="center">
+                            <motion.div
+                                initial={{opacity: 0, y: 30}}
+                                animate={{opacity: 1, y: 0}}
+                                transition={{duration: 0.5, delay: index * 0.1}}
+                            >
+                                <FlippingSkillCard skill={skill} index={index}/>
+                            </motion.div>
+                        </Grid>
+                    ))}
+                </Grid>
+            )}
         </Box>
     );
 }

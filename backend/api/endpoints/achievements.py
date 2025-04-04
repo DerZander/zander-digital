@@ -22,7 +22,7 @@ class AchievementEndpoint(Resource):
             achievements_list = sorted(
                 [a.as_dict() for a in achievements],
                 key=lambda x: x['date'],
-                reverse=False  # oder True für absteigend
+                reverse=True  # oder True für absteigend
             )
 
             return achievements_list, 200

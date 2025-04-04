@@ -3,6 +3,7 @@ import os
 # .env nur lokal laden, NICHT im Container
 if os.getenv("DOCKERIZED") != "1":
     from dotenv import load_dotenv
+
     load_dotenv()
 
 FLASK_HOST = os.getenv("FLASK_HOST", "0.0.0.0")
@@ -16,5 +17,5 @@ RESTPLUS_VAL = os.getenv("RESTPLUS_VALIDATE", True)
 RESTPLUS_MASK_SWAGGER = os.getenv("RESTPLUS_MASK_SWAGGER", False)
 
 CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:5173")
-SQLALCHEMY_DATABASE_URI = os.getenv("SQLALCHEMY_DATABASE_URI", "sqlite:///db.sqlite")
+SQLALCHEMY_DATABASE_URI = os.getenv("SQLALCHEMY_DATABASE_URI")
 SQLALCHEMY_TRACK_MODS = os.getenv("SQLALCHEMY_TRACK_MODS", False)

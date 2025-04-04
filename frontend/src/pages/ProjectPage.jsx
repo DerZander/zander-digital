@@ -31,13 +31,7 @@ export default function ProjectsPage() {
             .then(data => setBranches(data));
     }, []);
 
-
-    const branchCounts = projects.reduce((acc, project) => {
-        const name = project.branch.name;
-        acc[name] = (acc[name] || 0) + 1;
-        return acc;
-    }, {});
-
+    
     const filters = [
         "Alle",
         ...branches

@@ -1,9 +1,7 @@
-from database.BaseModel import BaseModel
-from database.database import db
+from backend.database import BaseModel, db
 
 
 class Achievement(BaseModel):
-    __tablename__ = 'achievement'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
     description = db.Column(db.String(120), nullable=True)

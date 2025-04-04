@@ -1,7 +1,6 @@
 from datetime import datetime
 
-from database.BaseModel import BaseModel
-from database.database import db
+from backend.database import BaseModel, db
 
 
 class Earworm(BaseModel):

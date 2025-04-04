@@ -1,4 +1,5 @@
-from database.database import db
+# from database.database import db
+from .Database import db
 
 
 class BaseModel(db.Model):

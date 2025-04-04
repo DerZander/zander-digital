@@ -1,5 +1,6 @@
-from database.models import Earworm
 from flask_restx import Resource, Namespace
+
+from backend.database.models import Earworm
 
 namespace = Namespace('earworms', description='Earworms related operations')
 

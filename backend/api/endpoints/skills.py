@@ -1,6 +1,7 @@
 # backend.endpoints.skills.py
-from database.models import Skill
 from flask_restx import Resource, Namespace
+
+from backend.database.models import Skill
 
 namespace = Namespace('skills', description='Skills related operations')
 

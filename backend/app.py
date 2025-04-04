@@ -2,7 +2,7 @@ from flask import Flask, Blueprint
 from flask_cors import CORS
 
 import settings
-from database.database import db
+from backend.database import db
 
 flask_app = Flask(__name__)
 
@@ -19,23 +19,30 @@ def init_app(app):
 
     # Blueprints und Namespaces
     from api.backend_api import api
-    from api.zander_digital.backend.endpoints.achievements import namespace as achievement_namespace
-    from api.zander_digital.backend.endpoints.earworms import namespace as earworm_namespace
-    from api.zander_digital.backend.endpoints.projects import namespace as project_namespace
-    from api.zander_digital.backend.endpoints.skills import namespace as skill_namespace
-    from api.zander_digital.backend.endpoints.education import namespace as education_namespace
-    from api.zander_digital.backend.endpoints.bitpet import namespace as bitpet_namespace
-    from api.zander_digital.backend.endpoints.branches import namespace as branch_namespace
+    from api.endpoints import (
+        achievement_namespace,
+        bitpet_namespace,
+        branch_namespace,
+        career_namespace,
+        earworm_namespace,
+        education_namespace,
+        project_namespace,
+        skill_namespace,
+    )
 
     blueprint = Blueprint('api', __name__, url_prefix='/api')
     api.init_app(blueprint)
-    api.add_namespace(skill_namespace)
-    api.add_namespace(earworm_namespace)
-    api.add_namespace(achievement_namespace)
-    api.add_namespace(education_namespace)
-    api.add_namespace(branch_namespace)
-    api.add_namespace(project_namespace)
-    api.add_namespace(bitpet_namespace)
+    for ns in [
+        achievement_namespace,
+        bitpet_namespace,
+        branch_namespace,
+        career_namespace,
+        earworm_namespace,
+        education_namespace,
+        project_namespace,
+        skill_namespace,
+    ]:
+        api.add_namespace(ns)
     app.register_blueprint(blueprint)
 
 

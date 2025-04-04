@@ -1,5 +1,6 @@
-from database.models import Achievement
 from flask_restx import Namespace, Resource, fields
+
+from backend.database.models import Achievement
 
 namespace = Namespace('achievements', description='Achievements related operations')
 
@@ -16,7 +17,15 @@ class AchievementEndpoint(Resource):
     def get(self):
         try:
             achievements = Achievement.query.all()
-            return [a.as_dict() for a in achievements], 200
+            if not achievements:
+                return {"message": "No achievements found"}, 404
+            achievements_list = sorted(
+                [a.as_dict() for a in achievements],
+                key=lambda x: x['date'],
+                reverse=False  # oder True für absteigend
+            )
+
+            return achievements_list, 200
         except ValueError as e:
             return {"error": str(e)}, 400
         except Exception as e:

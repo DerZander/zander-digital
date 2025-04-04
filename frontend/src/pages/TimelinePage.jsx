@@ -8,6 +8,8 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import {blueGrey, deepOrange, indigo, red, teal} from "@mui/material/colors";
+import {motion} from "framer-motion";
+
 
 // Icons
 import SchoolIcon from '@mui/icons-material/School';
@@ -20,6 +22,7 @@ import EventIcon from '@mui/icons-material/Event';
 import FlagIcon from '@mui/icons-material/Flag';
 
 import {API_URL} from "../config";
+import {formatDate} from "../utils/utils.jsx";
 
 const categoryIcon = (categoryId) => {
     switch (categoryId) {
@@ -58,6 +61,7 @@ const branchColor = (branchId) => {
 };
 
 const Achievement = ({achievement}) => (
+
     <TimelineItem>
         <TimelineSeparator>
             <TimelineConnector/>
@@ -68,7 +72,7 @@ const Achievement = ({achievement}) => (
         </TimelineSeparator>
         <TimelineContent>
             <Typography variant="body2" color={blueGrey[600]}>
-                {new Date(achievement.date).toLocaleDateString("de-DE", {year: "numeric", month: "long"})}
+                {formatDate(achievement.date)}
             </Typography>
             <Typography variant="h6" component="span">
                 {achievement.name}
@@ -132,7 +136,13 @@ function MyTimeline() {
 
             <Timeline position="alternate">
                 {filteredAchievements.map((achievement, index) => (
-                    <Achievement key={index} achievement={achievement}/>
+                    <motion.div
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{delay: index * 0.1}}
+                    >
+                        <Achievement key={index} achievement={achievement} index={index}/>
+                    </motion.div>
                 ))}
             </Timeline>
         </>

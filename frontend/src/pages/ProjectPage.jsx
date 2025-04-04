@@ -17,7 +17,7 @@ export default function ProjectsPage() {
     const handleCloseModal = () => setSelectedSkill(null);
 
     useEffect(() => {
-        fetch(`${API_URL}/projects`)
+        fetch(`${API_URL}/projects/`)
             .then(res => res.json())
             .then(data => {
                 setProjects(data);
@@ -26,7 +26,7 @@ export default function ProjectsPage() {
     }, []);
 
     useEffect(() => {
-        fetch(`${API_URL}/branches`)
+        fetch(`${API_URL}/branches/`)
             .then(res => res.json())
             .then(data => setBranches(data));
     }, []);

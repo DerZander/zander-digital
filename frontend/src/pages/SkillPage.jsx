@@ -238,7 +238,6 @@ function SkillGridPage() {
             .then((data) => setDbSkills(data))
             .catch((err) => console.error(err));
     }, []);
-
     const sortedSkills = [...dbSkills]
         .sort((a, b) => (b.is_favorite ? 1 : 0) - (a.is_favorite ? 1 : 0))
         .sort((a, b) => Math.floor(Math.log2(b.xp)) - Math.floor(Math.log2(a.xp)));

@@ -1,24 +1,22 @@
 import {useState} from "react";
-import {AppBar, Box, Button, IconButton, Menu, MenuItem, Toolbar, Typography, useMediaQuery} from "@mui/material";
+import {AppBar, Box, Button, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography, useMediaQuery} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import {useLocation, useNavigate} from "react-router-dom";
 import {routes} from "../routes.jsx";
 
 const navigationItems = [...routes].sort((a, b) => a.id - b.id);
 
-export default function Navigation() {
+export default function Navigation({isLight, onToggleTheme}) {
     const navigate = useNavigate();
     const location = useLocation();
     const isDesktop = useMediaQuery("(min-width: 900px)");
     const [menuAnchor, setMenuAnchor] = useState(null);
-    const showNavigation = location.pathname !== "/";
-
     const navigateTo = (path) => {
         navigate(path);
         setMenuAnchor(null);
     };
-
-    if (!showNavigation) return null;
 
     return (
         <AppBar className="site-header" position="sticky" elevation={0}>
@@ -101,6 +99,19 @@ export default function Navigation() {
                         </Menu>
                     </>
                 )}
+                <Tooltip title={isLight ? "Zum Dunkelmodus wechseln" : "Zum Hellmodus wechseln"}>
+                    <IconButton
+                        aria-label={isLight ? "Zum Dunkelmodus wechseln" : "Zum Hellmodus wechseln"}
+                        onClick={onToggleTheme}
+                        sx={{
+                            ml: isDesktop ? 1 : 0,
+                            color: "var(--color-accent)",
+                            border: "1px solid rgba(var(--color-accent-rgb), 0.22)",
+                        }}
+                    >
+                        {isLight ? <DarkModeIcon/> : <LightModeIcon/>}
+                    </IconButton>
+                </Tooltip>
             </Toolbar>
         </AppBar>
     );

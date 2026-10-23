@@ -1,19 +1,41 @@
 :root {
     font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: #edf4f2;
-    background: #101817;
+    color: var(--color-text);
+    background: var(--color-bg);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    --color-bg: #101817;
-    --color-surface: #172321;
-    --color-surface-raised: #1d2b28;
-    --color-text: #edf4f2;
-    --color-muted: #9aaba6;
-    --color-accent: #b6ef72;
-    --color-accent-dark: #7ea83e;
+    color-scheme: dark;
+    --color-bg: #0e1724;
+    --color-bg-secondary: #111d2d;
+    --color-surface: #162235;
+    --color-surface-raised: #1c2b42;
+    --color-text: #eaf2ff;
+    --color-muted: #9dafc4;
+    --color-accent: #54d6e8;
+    --color-accent-hover: #78e2ef;
+    --color-accent-contrast: #081a24;
+    --color-accent-rgb: 84, 214, 232;
+    --color-border-rgb: 196, 217, 241;
+    --color-surface-rgb: 22, 34, 53;
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+    --color-bg: #f5f8fc;
+    --color-bg-secondary: #edf3fa;
+    --color-surface: #ffffff;
+    --color-surface-raised: #eaf1fa;
+    --color-text: #15263c;
+    --color-muted: #62748b;
+    --color-accent: #1769d2;
+    --color-accent-hover: #0f55b1;
+    --color-accent-contrast: #ffffff;
+    --color-accent-rgb: 23, 105, 210;
+    --color-border-rgb: 54, 83, 119;
+    --color-surface-rgb: 255, 255, 255;
 }
 
 * {
@@ -34,8 +56,9 @@ body {
     overflow-x: hidden;
     color: var(--color-text);
     background:
-        radial-gradient(ellipse at 82% 5%, rgba(90, 124, 75, 0.14), transparent 34rem),
-        linear-gradient(145deg, #101817 0%, #111b19 55%, #101817 100%);
+        radial-gradient(ellipse at 82% 5%, rgba(var(--color-accent-rgb), 0.09), transparent 34rem),
+        linear-gradient(145deg, var(--color-bg) 0%, var(--color-bg-secondary) 55%, var(--color-bg) 100%);
+    transition: color 180ms ease, background-color 180ms ease;
 }
 
 body,
@@ -66,7 +89,7 @@ img {
 }
 
 ::selection {
-    color: #101817;
+    color: var(--color-accent-contrast);
     background: var(--color-accent);
 }
 

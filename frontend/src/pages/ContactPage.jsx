@@ -1,6 +1,6 @@
 import {Box, IconButton, Stack, Typography} from "@mui/material";
 import React from "react";
-import {motion} from "framer-motion";
+import {motion as Motion} from "framer-motion";
 import {loadFull} from "tsparticles";
 import Particles from "react-tsparticles";
 import EmailIcon from '@mui/icons-material/Email';
@@ -33,7 +33,7 @@ export default function ContactPage() {
                     },
                     particles: {
                         number: {value: 50, density: {enable: true, area: 800}},
-                        color: {value: ["#f9d423", "#ff4e50"]},
+                        color: {value: ["#54d6e8", "#1769d2"]},
                         shape: {type: "circle"},
                         opacity: {value: 0.3, random: true},
                         size: {value: 4, random: true},
@@ -60,12 +60,12 @@ export default function ContactPage() {
                     alignItems: "center",
                     justifyContent: "center",
                     padding: 4,
-                    color: "#fff",
+                    color: "var(--color-text)",
                     pb: 8,
                     minHeight: "100vh"
                 }}
             >
-                <motion.div
+                <Motion.div
                     initial={{opacity: 0, y: -30}}
                     animate={{opacity: 1, y: 0}}
                     transition={{duration: 0.8}}
@@ -76,33 +76,33 @@ export default function ContactPage() {
                     <Typography variant="h3" mb={4} sx={{background: 'linear-gradient(90deg, #00c6ff, #0072ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Kontaktiere mich</Typography>
 
                     <Stack direction="row" justifyContent="center" spacing={2} mb={3}>
-                        <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
+                        <Motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
                             <IconButton color="primary" href="mailto:mail@zander.digital" target="_blank" title="Mail">
                                 <EmailIcon fontSize="large"/>
                             </IconButton>
-                        </motion.div>
-                        <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
+                        </Motion.div>
+                        <Motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
                             <IconButton color="primary" href="https://linkedin.com/in/timo-zander-6446a322a" target="_blank" title="LinkedIn">
                                 <LinkedInIcon fontSize="large"/>
                             </IconButton>
-                        </motion.div>
-                        <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
+                        </Motion.div>
+                        <Motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
                             <IconButton color="primary" href="https://instagram.com/dieser_zander" target="_blank" title="Instagram">
                                 <InstagramIcon fontSize="large"/>
                             </IconButton>
-                        </motion.div>
-                        <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
+                        </Motion.div>
+                        <Motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
                             <IconButton color="primary" href="https://github.com/DerZander" target="_blank" title="Github">
                                 <GithubIcon fontSize="large"/>
                             </IconButton>
-                        </motion.div>
-                        <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
+                        </Motion.div>
+                        <Motion.div whileHover={{scale: 1.2}} whileTap={{scale: 0.9}}>
                             <IconButton color="primary" href="https://facebook.com/100008370105149" target="_blank" title="Facebook">
                                 <FacebookIcon fontSize="large"/>
                             </IconButton>
-                        </motion.div>
+                        </Motion.div>
                     </Stack>
-                </motion.div>
+                </Motion.div>
             </Box>
         </Box>
     );

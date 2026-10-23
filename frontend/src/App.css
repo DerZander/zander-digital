@@ -3,8 +3,8 @@
 }
 
 .site-header {
-    border-bottom: 1px solid rgba(220, 240, 230, 0.08);
-    background: rgba(16, 24, 23, 0.82) !important;
+    border-bottom: 1px solid rgba(var(--color-border-rgb), 0.12);
+    background: rgba(var(--color-surface-rgb), 0.86) !important;
     backdrop-filter: blur(18px);
 }
 
@@ -14,7 +14,7 @@
     height: 34px;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(182, 239, 114, 0.5);
+    border: 1px solid rgba(var(--color-accent-rgb), 0.5);
     border-radius: 11px;
     color: var(--color-accent);
     font-size: 0.8rem;
@@ -38,9 +38,9 @@
     right: -12rem;
     width: 34rem;
     height: 34rem;
-    border: 1px solid rgba(182, 239, 114, 0.09);
+    border: 1px solid rgba(var(--color-accent-rgb), 0.09);
     border-radius: 50%;
-    box-shadow: 0 0 0 5rem rgba(182, 239, 114, 0.018), 0 0 0 10rem rgba(182, 239, 114, 0.014);
+    box-shadow: 0 0 0 5rem rgba(var(--color-accent-rgb), 0.018), 0 0 0 10rem rgba(var(--color-accent-rgb), 0.014);
     content: "";
     pointer-events: none;
 }
@@ -133,22 +133,22 @@
 }
 
 .landing-primary.MuiButton-root {
-    color: #152016;
+    color: var(--color-accent-contrast);
     background: var(--color-accent);
 }
 
 .landing-primary.MuiButton-root:hover {
-    background: #c9f894;
+    background: var(--color-accent-hover);
 }
 
 .landing-secondary.MuiButton-root {
-    border-color: rgba(220, 240, 230, 0.2);
+    border-color: rgba(var(--color-border-rgb), 0.2);
     color: var(--color-text);
 }
 
 .landing-secondary.MuiButton-root:hover {
-    border-color: rgba(182, 239, 114, 0.65);
-    background: rgba(182, 239, 114, 0.06);
+    border-color: rgba(var(--color-accent-rgb), 0.65);
+    background: rgba(var(--color-accent-rgb), 0.06);
 }
 
 .landing-portrait-wrap {
@@ -161,7 +161,7 @@
     display: block;
     width: 100%;
     aspect-ratio: 0.86;
-    border: 1px solid rgba(220, 240, 230, 0.16);
+    border: 1px solid rgba(var(--color-border-rgb), 0.16);
     border-radius: 180px 180px 28px 28px;
     object-fit: cover;
     object-position: 53% center;
@@ -172,7 +172,7 @@
     position: absolute;
     inset: 14px -14px -14px 14px;
     z-index: -1;
-    border: 1px solid rgba(182, 239, 114, 0.45);
+    border: 1px solid rgba(var(--color-accent-rgb), 0.45);
     border-radius: 180px 180px 28px 28px;
     content: "";
 }
@@ -182,9 +182,9 @@
     right: -22px;
     bottom: 28px;
     padding: 14px 18px;
-    border: 1px solid rgba(220, 240, 230, 0.12);
+    border: 1px solid rgba(var(--color-border-rgb), 0.12);
     border-radius: 14px;
-    background: rgba(23, 35, 33, 0.94);
+    background: rgba(var(--color-surface-rgb), 0.94);
     box-shadow: 0 16px 45px rgba(0, 0, 0, 0.25);
 }
 
@@ -219,7 +219,7 @@
     align-items: center;
     gap: 8px;
     padding: 10px 14px;
-    border: 1px solid rgba(220, 240, 230, 0.1);
+    border: 1px solid rgba(var(--color-border-rgb), 0.1);
     border-radius: 999px;
     color: var(--color-muted);
     font-size: 0.84rem;
@@ -227,13 +227,13 @@
 }
 
 .landing-links a:hover {
-    border-color: rgba(182, 239, 114, 0.4);
+    border-color: rgba(var(--color-accent-rgb), 0.4);
     color: var(--color-accent);
-    background: rgba(182, 239, 114, 0.05);
+    background: rgba(var(--color-accent-rgb), 0.05);
 }
 
 .page-footer {
-    border-top: 1px solid rgba(220, 240, 230, 0.07);
+    border-top: 1px solid rgba(var(--color-border-rgb), 0.1);
     color: var(--color-muted);
 }
 

@@ -7,7 +7,7 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
-import {blueGrey, deepOrange, indigo, red, teal} from "@mui/material/colors";
+import {deepOrange, indigo, red, teal} from "@mui/material/colors";
 import {motion as Motion} from "framer-motion";
 
 
@@ -71,14 +71,14 @@ const Achievement = ({achievement}) => (
             <TimelineConnector/>
         </TimelineSeparator>
         <TimelineContent>
-            <Typography variant="body2" color={blueGrey[600]}>
+            <Typography variant="body2" color="text.secondary">
                 {formatDate(achievement.date)}
             </Typography>
             <Typography variant="h6" component="span">
                 {achievement.name}
             </Typography>
             {achievement.description && (
-                <Typography variant="body2" color={blueGrey[600]}>
+                <Typography variant="body2" color="text.secondary">
                     {achievement.description}
                 </Typography>
             )}

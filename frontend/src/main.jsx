@@ -1,35 +1,52 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import './index.css';
+import "./index.css";
+import "./App.css";
 import {HashRouter, Route, Routes} from "react-router";
+import {Box, CssBaseline, ThemeProvider, Typography, createTheme} from "@mui/material";
 import {routes} from "./routes.jsx";
 import Navigation from "./components/navigation.jsx";
-import {Box, Typography} from "@mui/material";
 import LandingPage from "./pages/LandingPage.jsx";
+
+const theme = createTheme({
+    palette: {
+        mode: "dark",
+        primary: {main: "#b6ef72", contrastText: "#152016"},
+        secondary: {main: "#9aaba6"},
+        background: {default: "#101817", paper: "#172321"},
+        text: {primary: "#edf4f2", secondary: "#9aaba6"},
+    },
+    typography: {
+        fontFamily: 'Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+        button: {fontWeight: 650, textTransform: "none"},
+    },
+});
 
 export default function App() {
     return (
-        <HashRouter>
-            <Box display="flex" flexDirection="column" minHeight="100vh">
-                <Navigation/>
-                <Box flexGrow={1}>
-                    <Routes>
-                        {routes.map((route) => (
-                            <Route key={route.route} path={route.route} element={route.component}/>
-                        ))}
-                        <Route path="*" element={<Typography variant="h1">404 - Seite nicht gefunden</Typography>}/>
-                        <Route path="/" element={<LandingPage/>}/>
-                    </Routes>
+        <ThemeProvider theme={theme}>
+            <CssBaseline/>
+            <HashRouter>
+                <Box display="flex" flexDirection="column" minHeight="100vh">
+                    <Navigation/>
+                    <Box flexGrow={1}>
+                        <Routes>
+                            {routes.map((route) => (
+                                <Route key={route.route} path={route.route} element={route.component}/>
+                            ))}
+                            <Route path="*" element={<Typography variant="h1">404 - Seite nicht gefunden</Typography>}/>
+                            <Route path="/" element={<LandingPage/>}/>
+                        </Routes>
+                    </Box>
+                    <Box component="footer" className="page-footer" sx={{width: "100%", textAlign: "center", py: 2}}>
+                        <Typography variant="caption">
+                            © {new Date().getFullYear()} Timo Zander · Zander.digital
+                        </Typography>
+                    </Box>
                 </Box>
-                <Box component="footer" sx={{width: "100%", textAlign: "center", py: 2, mt: 4}}>
-                    <Typography variant="caption" color="grey.800">
-                        © 2025 Timo Zander. All rights reserved.
-                    </Typography>
-                </Box>
-            </Box>
-        </HashRouter>
+            </HashRouter>
+        </ThemeProvider>
     );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App/>);
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);

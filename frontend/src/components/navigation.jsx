@@ -1,50 +1,107 @@
-import * as React from 'react';
-import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialAction from '@mui/material/SpeedDialAction';
-import {Outlet, useLocation, useNavigate} from "react-router";
+import {useState} from "react";
+import {AppBar, Box, Button, IconButton, Menu, MenuItem, Toolbar, Typography, useMediaQuery} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import {useLocation, useNavigate} from "react-router-dom";
 import {routes} from "../routes.jsx";
-import MenuIcon from '@mui/icons-material/Menu';
+
+const navigationItems = [...routes].sort((a, b) => a.id - b.id);
 
 export default function Navigation() {
     const navigate = useNavigate();
     const location = useLocation();
-
+    const isDesktop = useMediaQuery("(min-width: 900px)");
+    const [menuAnchor, setMenuAnchor] = useState(null);
     const showNavigation = location.pathname !== "/";
 
+    const navigateTo = (path) => {
+        navigate(path);
+        setMenuAnchor(null);
+    };
+
+    if (!showNavigation) return null;
+
     return (
-        <>
-            <style>{`
-                body { 
-                    overflow-x: hidden; 
-                    overflow-y: auto; 
-                    margin: 0; 
-                    padding: 0;
-                }
-                html, body, #root {
-                    height: 100%;
-                    max-width: 100vw;
-                }
-                * {
-                    box-sizing: border-box;
-                }
-            `}</style>
-            {showNavigation && (
-                <SpeedDial
-                    ariaLabel="Navigation Menü"
-                    sx={{position: 'fixed', bottom: 24, right: 24}}
-                    icon={<MenuIcon/>}
+        <AppBar className="site-header" position="sticky" elevation={0}>
+            <Toolbar
+                sx={{
+                    width: "100%",
+                    maxWidth: 1240,
+                    minHeight: "72px !important",
+                    mx: "auto",
+                    px: {xs: 2.5, md: 4},
+                    justifyContent: "space-between",
+                    gap: 2,
+                }}
+            >
+                <Button
+                    onClick={() => navigateTo("/")}
+                    aria-label="Zur Startseite"
+                    sx={{display: "flex", gap: 1.25, minWidth: 0, p: 0, color: "inherit", textTransform: "none"}}
                 >
-                    {routes.sort((a, b) => b.id - a.id).map((action) => (
-                        <SpeedDialAction
-                            key={action.name}
-                            icon={action.icon}
-                            tooltipTitle={action.name}
-                            onClick={() => navigate(action.route)}
-                        />
-                    ))}
-                </SpeedDial>
-            )}
-            <Outlet/>
-        </>
+                    <span className="brand-mark">TZ</span>
+                    <Typography sx={{fontSize: "0.96rem", fontWeight: 750, letterSpacing: "-0.03em"}}>
+                        ZANDER<span style={{color: "var(--color-accent)"}}>.DIGITAL</span>
+                    </Typography>
+                </Button>
+
+                {isDesktop ? (
+                    <Box component="nav" aria-label="Hauptnavigation" sx={{display: "flex", alignItems: "center", gap: 0.5}}>
+                        {navigationItems.map((item) => {
+                            const active = location.pathname === item.route;
+                            return (
+                                <Button
+                                    key={item.route}
+                                    onClick={() => navigateTo(item.route)}
+                                    startIcon={item.icon}
+                                    sx={{
+                                        px: 1.25,
+                                        color: active ? "var(--color-accent)" : "var(--color-muted)",
+                                        fontSize: "0.84rem",
+                                        fontWeight: active ? 700 : 500,
+                                        textTransform: "none",
+                                        "& .MuiButton-startIcon": {mr: 0.6},
+                                        "&:hover": {color: "var(--color-text)", background: "rgba(255,255,255,0.05)"},
+                                    }}
+                                >
+                                    {item.name}
+                                </Button>
+                            );
+                        })}
+                    </Box>
+                ) : (
+                    <>
+                        <IconButton
+                            aria-label="Navigation öffnen"
+                            aria-controls={menuAnchor ? "site-navigation-menu" : undefined}
+                            aria-haspopup="true"
+                            onClick={(event) => setMenuAnchor(event.currentTarget)}
+                            sx={{color: "var(--color-text)"}}
+                        >
+                            <MenuIcon/>
+                        </IconButton>
+                        <Menu
+                            id="site-navigation-menu"
+                            anchorEl={menuAnchor}
+                            open={Boolean(menuAnchor)}
+                            onClose={() => setMenuAnchor(null)}
+                            slotProps={{paper: {sx: {mt: 1, minWidth: 210, bgcolor: "var(--color-surface)", color: "var(--color-text)"}}}}
+                        >
+                            {navigationItems.map((item) => (
+                                <MenuItem
+                                    key={item.route}
+                                    selected={location.pathname === item.route}
+                                    onClick={() => navigateTo(item.route)}
+                                >
+                                    <Box sx={{display: "flex", alignItems: "center", gap: 1.5}}>
+                                        {item.icon}
+                                        {item.name}
+                                    </Box>
+                                </MenuItem>
+                            ))}
+                        </Menu>
+                    </>
+                )}
+            </Toolbar>
+        </AppBar>
     );
 }

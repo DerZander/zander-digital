@@ -8,7 +8,7 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import {blueGrey, deepOrange, indigo, red, teal} from "@mui/material/colors";
-import {motion} from "framer-motion";
+import {motion as Motion} from "framer-motion";
 
 
 // Icons
@@ -134,15 +134,17 @@ function MyTimeline() {
                 ))}
             </Stack>
 
-            <Timeline position="alternate">
+            <Timeline className="timeline-list" position="alternate">
                 {filteredAchievements.map((achievement, index) => (
-                    <motion.div
+                    <Motion.div
+                        key={achievement.id ?? `${achievement.date}-${achievement.name}`}
+                        style={{width: "100%"}}
                         initial={{opacity: 0, y: 20}}
                         animate={{opacity: 1, y: 0}}
                         transition={{delay: index * 0.1}}
                     >
-                        <Achievement key={index} achievement={achievement} index={index}/>
-                    </motion.div>
+                        <Achievement achievement={achievement} index={index}/>
+                    </Motion.div>
                 ))}
             </Timeline>
         </>

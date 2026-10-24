@@ -1,6 +1,7 @@
 import {useMemo, useState} from "react";
 import {motion as Motion} from "framer-motion";
-import {Box, Card, CardContent, Chip, Modal, Stack, Typography} from "@mui/material";
+import {Box, Button, Card, CardContent, Chip, Modal, Stack, Typography} from "@mui/material";
+import {GitHub as GitHubIcon, OpenInNew, Public as PublicIcon} from "@mui/icons-material";
 import {SkillCardBackside} from "./SkillPage.jsx";
 import {formatDate} from "../utils/utils.jsx";
 import projectsData from "../data/projects.json";
@@ -114,8 +115,43 @@ export default function ProjectsPage() {
                                             {project.description || "Ein Projekt, bei dem ich meine technischen Kenntnisse praktisch einsetze."}
                                         </Typography>
 
+                                        {project.branch_id !== 2 && (project.repository_url || project.live_url) && (
+                                            <Stack direction="row" flexWrap="wrap" gap={1} sx={{mt: "auto", mb: project.skills?.length ? 2 : 0}}>
+                                                {project.repository_url && (
+                                                    <Button
+                                                        component="a"
+                                                        href={project.repository_url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        size="small"
+                                                        variant="outlined"
+                                                        startIcon={<GitHubIcon/>}
+                                                        endIcon={<OpenInNew sx={{fontSize: "1rem !important"}}/>}
+                                                        sx={{borderColor: "rgba(var(--color-border-rgb),0.2)", color: "var(--color-text)", textTransform: "none"}}
+                                                    >
+                                                        GitHub
+                                                    </Button>
+                                                )}
+                                                {project.live_url && (
+                                                    <Button
+                                                        component="a"
+                                                        href={project.live_url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        size="small"
+                                                        variant="outlined"
+                                                        startIcon={<PublicIcon/>}
+                                                        endIcon={<OpenInNew sx={{fontSize: "1rem !important"}}/>}
+                                                        sx={{borderColor: "rgba(var(--color-border-rgb),0.2)", color: "var(--color-text)", textTransform: "none"}}
+                                                    >
+                                                        Live ansehen
+                                                    </Button>
+                                                )}
+                                            </Stack>
+                                        )}
+
                                         {project.skills?.length > 0 && (
-                                            <Stack direction="row" flexWrap="wrap" gap={0.75} sx={{mt: "auto"}}>
+                                            <Stack direction="row" flexWrap="wrap" gap={0.75} sx={{mt: project.branch_id !== 2 && (project.repository_url || project.live_url) ? 0 : "auto"}}>
                                                 {project.skills.map((skill) => (
                                                     <Chip
                                                         key={skill.id}

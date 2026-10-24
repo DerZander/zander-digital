@@ -1,8 +1,8 @@
 FROM python:3.11-slim
 
-WORKDIR /app
+WORKDIR /backend
 
-ENV PYTHONPATH=/app
+ENV PYTHONPATH=/backend
 
 COPY . .
 

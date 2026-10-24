@@ -1,4 +1,4 @@
-from backend.database import BaseModel, db
+from database import BaseModel, db
 
 
 class Achievement(BaseModel):

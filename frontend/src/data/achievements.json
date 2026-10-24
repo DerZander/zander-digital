@@ -1,0 +1,706 @@
+[
+    {
+        "id": 38,
+        "name": "JuLeiCa Schulung",
+        "description": null,
+        "date": "2025-04-01",
+        "branch_id": 4,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 4,
+            "name": "Bildung"
+        }
+    },
+    {
+        "id": 33,
+        "name": "Aktive Wehr",
+        "description": "Eintritt in die Aktive Wehr der Einheit Gustorf",
+        "date": "2025-03-19",
+        "branch_id": 1,
+        "category_id": 8,
+        "category": {
+            "id": 8,
+            "name": "Eintritt"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 46,
+        "name": "Austritt aus der Einheit Gustorf",
+        "description": "Austritt aus der aktiven Wehr zum Jahreswechsel 2025/2026.",
+        "date": "2026-01-01",
+        "branch_id": 1,
+        "category_id": 18,
+        "category": {
+            "id": 18,
+            "name": "Austritt"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 26,
+        "name": "F\u00fchrerscheinklasse C C1",
+        "description": null,
+        "date": "2024-11-05",
+        "branch_id": 3,
+        "category_id": 6,
+        "category": {
+            "id": 6,
+            "name": "Zulassungen"
+        },
+        "branch": {
+            "id": 3,
+            "name": "Privat"
+        }
+    },
+    {
+        "id": 25,
+        "name": "F\u00fchrerscheinklasse A A1 A2",
+        "description": null,
+        "date": "2024-10-22",
+        "branch_id": 3,
+        "category_id": 6,
+        "category": {
+            "id": 6,
+            "name": "Zulassungen"
+        },
+        "branch": {
+            "id": 3,
+            "name": "Privat"
+        }
+    },
+    {
+        "id": 22,
+        "name": "Jugendfeuerwehrwart",
+        "description": null,
+        "date": "2024-03-16",
+        "branch_id": 1,
+        "category_id": 1,
+        "category": {
+            "id": 1,
+            "name": "Ernennung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 21,
+        "name": "JF-Fortbildung: Methodik / Didaktik und gruppendynamische Spiele",
+        "description": null,
+        "date": "2023-11-19",
+        "branch_id": 1,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 27,
+        "name": "Bachelor of Science in Wirtschaftsinformatik",
+        "description": null,
+        "date": "2023-07-21",
+        "branch_id": 4,
+        "category_id": 16,
+        "category": {
+            "id": 16,
+            "name": "Studienabschluss"
+        },
+        "branch": {
+            "id": 4,
+            "name": "Bildung"
+        }
+    },
+    {
+        "id": 39,
+        "name": "Festanstellung als Developer im Bereich Risk",
+        "description": "Backend-Entwicklung für Anwendungen rund um Kreditentscheidungen und Risikobewertungen bei Santander Consumer Technology Services.",
+        "date": "2023-07-01",
+        "branch_id": 2,
+        "category_id": 9,
+        "category": {
+            "id": 9,
+            "name": "Festanstellung"
+        },
+        "branch": {
+            "id": 2,
+            "name": "Arbeit"
+        }
+    },
+    {
+        "id": 40,
+        "name": "Teamwechsel innerhalb des Bereichs Risk",
+        "description": "Ab April 2026: Backend-Entwicklung für Anwendungen zur Bewertung von Kreditrisiken in verschiedenen Finanzierungsbereichen sowie zur Betrugsprävention.",
+        "date": "2026-04-01",
+        "branch_id": 2,
+        "category_id": 10,
+        "category": {
+            "id": 10,
+            "name": "Aufgabenerweiterung"
+        },
+        "branch": {
+            "id": 2,
+            "name": "Arbeit"
+        }
+    },
+    {
+        "id": 45,
+        "name": "Java- und Spring-Boot-Schulung",
+        "description": "Schulung bei der GFU in Köln.",
+        "date": "2026-06-01",
+        "branch_id": 4,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 4,
+            "name": "Bildung"
+        }
+    },
+    {
+        "id": 41,
+        "name": "Umfirmierung zu Openbank",
+        "description": "Im Zuge der Umfirmierung von Santander zu Openbank wurde Santander Consumer Technology Services in Open Technology Services umbenannt. Der Bereich Risk heißt nun Cross System Delivery.",
+        "date": "2026-09-30",
+        "branch_id": 2,
+        "category_id": 11,
+        "category": {
+            "id": 11,
+            "name": "Umfirmierung"
+        },
+        "branch": {
+            "id": 2,
+            "name": "Arbeit"
+        }
+    },
+    {
+        "id": 20,
+        "name": "Feuerwehrleistungsabzeichen in Gold",
+        "description": null,
+        "date": "2022-09-17",
+        "branch_id": 1,
+        "category_id": 4,
+        "category": {
+            "id": 4,
+            "name": "Urkunde"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 18,
+        "name": "Auszeichnung für den Einsatz bei der Unwetterkatastrophe",
+        "description": "Auszeichnung für den Einsatz im Juni 2021, erhalten im Januar 2022.",
+        "date": "2022-01-01",
+        "branch_id": 1,
+        "category_id": 4,
+        "category": {
+            "id": 4,
+            "name": "Urkunde"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 17,
+        "name": "Ende der Tätigkeit als stellvertretender Jugendfeuerwehrwart",
+        "description": null,
+        "date": "2020-12-31",
+        "branch_id": 1,
+        "category_id": 5,
+        "category": {
+            "id": 5,
+            "name": "R\u00fccktritt"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 16,
+        "name": "Unterbrandmeister",
+        "description": null,
+        "date": "2020-03-21",
+        "branch_id": 1,
+        "category_id": 2,
+        "category": {
+            "id": 2,
+            "name": "Bef\u00f6rderung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 15,
+        "name": "Maschinist",
+        "description": null,
+        "date": "2019-07-13",
+        "branch_id": 1,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 14,
+        "name": "Truppf\u00fchrer",
+        "description": null,
+        "date": "2019-04-06",
+        "branch_id": 1,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 35,
+        "name": "Beginn des dualen Studiums",
+        "description": "Auf das Praktikum bei Santander Consumer Technology Services folgte der Start des dualen Studiums der Wirtschaftsinformatik.",
+        "date": "2019-09-01",
+        "branch_id": 2,
+        "category_id": 14,
+        "category": {
+            "id": 14,
+            "name": "Duales Studium"
+        },
+        "branch": {
+            "id": 2,
+            "name": "Arbeit"
+        }
+    },
+    {
+        "id": 42,
+        "name": "Praktikum bei Santander Consumer Technology Services",
+        "description": "Praktikum von Februar bis August 2019 als Übergang zwischen der Ausbildung und dem dualen Studium.",
+        "date": "2019-02-01",
+        "branch_id": 2,
+        "category_id": 13,
+        "category": {
+            "id": 13,
+            "name": "Praktikum"
+        },
+        "branch": {
+            "id": 2,
+            "name": "Arbeit"
+        }
+    },
+    {
+        "id": 29,
+        "name": "Abschluss der Ausbildung",
+        "description": "Abschluss der Ausbildung zum Kaufmann für Büromanagement mit Einblicken in Personal, Communications, Kreditentscheidung sowie Legal & Compliance.",
+        "date": "2019-01-07",
+        "branch_id": 2,
+        "category_id": 12,
+        "category": {
+            "id": 12,
+            "name": "Ausbildungsabschluss"
+        },
+        "branch": {
+            "id": 2,
+            "name": "Arbeit"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Stellvertretender Jugendfeuerwehrwart",
+        "description": "Ernennung in der Einheit Bedburg.",
+        "date": "2019-01-01",
+        "branch_id": 1,
+        "category_id": 1,
+        "category": {
+            "id": 1,
+            "name": "Ernennung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 13,
+        "name": "Feuerwehrleistungsabzeichen in Silber",
+        "description": null,
+        "date": "2018-09-08",
+        "branch_id": 1,
+        "category_id": 4,
+        "category": {
+            "id": 4,
+            "name": "Urkunde"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 12,
+        "name": "F\u00fchrungshilfspersonal (ELW) - Grundausbildung",
+        "description": null,
+        "date": "2018-07-21",
+        "branch_id": 1,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Oberfeuerwehrmann",
+        "description": null,
+        "date": "2018-03-17",
+        "branch_id": 1,
+        "category_id": 2,
+        "category": {
+            "id": 2,
+            "name": "Bef\u00f6rderung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 11,
+        "name": "JF-Fortbildung: Jugendschutz / Waffengewalt",
+        "description": null,
+        "date": "2017-12-09",
+        "branch_id": 1,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 10,
+        "name": "JF-Fortbildung: Gruppendynamische Spiele (Theorie und Praxis)",
+        "description": null,
+        "date": "2017-07-01",
+        "branch_id": 1,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 9,
+        "name": "JF-Fortbildung: Kinderschutz",
+        "description": null,
+        "date": "2017-03-11",
+        "branch_id": 1,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 24,
+        "name": "F\u00fchrerscheinklasse B AM L",
+        "description": null,
+        "date": "2016-12-22",
+        "branch_id": 3,
+        "category_id": 6,
+        "category": {
+            "id": 6,
+            "name": "Zulassungen"
+        },
+        "branch": {
+            "id": 3,
+            "name": "Privat"
+        }
+    },
+    {
+        "id": 8,
+        "name": "Atemschutzger\u00e4tetr\u00e4ger",
+        "description": null,
+        "date": "2016-11-19",
+        "branch_id": 1,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 7,
+        "name": "JF-Fortbildung: \u00d6ffentlichkeitsarbeit / Gestaltung von \u00dcbungsdiensten",
+        "description": null,
+        "date": "2016-10-15",
+        "branch_id": 1,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 6,
+        "name": "Feuerwehrleistungsabzeichen in Bronze",
+        "description": null,
+        "date": "2016-09-04",
+        "branch_id": 1,
+        "category_id": 4,
+        "category": {
+            "id": 4,
+            "name": "Urkunde"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 34,
+        "name": "Ausbildungsbeginn bei Santander Consumer Bank AG",
+        "description": "Start der Ausbildung zum Kaufmann f\u00fcr B\u00fcromanagement",
+        "date": "2016-08-01",
+        "branch_id": 2,
+        "category_id": 8,
+        "category": {
+            "id": 8,
+            "name": "Eintritt"
+        },
+        "branch": {
+            "id": 2,
+            "name": "Arbeit"
+        }
+    },
+    {
+        "id": 28,
+        "name": "Fachhochschulreife",
+        "description": null,
+        "date": "2016-06-30",
+        "branch_id": 4,
+        "category_id": 17,
+        "category": {
+            "id": 17,
+            "name": "Schulabschluss"
+        },
+        "branch": {
+            "id": 4,
+            "name": "Bildung"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Truppmannausbildung Modul 1 und 3",
+        "description": null,
+        "date": "2016-03-19",
+        "branch_id": 1,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Sprechfunker",
+        "description": null,
+        "date": "2015-11-28",
+        "branch_id": 1,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 1,
+        "name": "Truppmannausbildung Modul 2 und 4",
+        "description": null,
+        "date": "2015-03-14",
+        "branch_id": 1,
+        "category_id": 3,
+        "category": {
+            "id": 3,
+            "name": "Weiterbildung"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 32,
+        "name": "Aktive Wehr",
+        "description": "Eintritt in die Aktive Wehr der Einheit Bedburg",
+        "date": "2015-03-02",
+        "branch_id": 1,
+        "category_id": 8,
+        "category": {
+            "id": 8,
+            "name": "Eintritt"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 30,
+        "name": "Mittlere Reife",
+        "description": null,
+        "date": "2013-06-01",
+        "branch_id": 4,
+        "category_id": 17,
+        "category": {
+            "id": 17,
+            "name": "Schulabschluss"
+        },
+        "branch": {
+            "id": 4,
+            "name": "Bildung"
+        }
+    },
+    {
+        "id": 31,
+        "name": "Jugendfeuerwehr",
+        "description": "Eintritt in die Jugendfeuerwehr der Einheit Bedburg",
+        "date": "2009-07-01",
+        "branch_id": 1,
+        "category_id": 8,
+        "category": {
+            "id": 8,
+            "name": "Eintritt"
+        },
+        "branch": {
+            "id": 1,
+            "name": "Feuerwehr"
+        }
+    },
+    {
+        "id": 37,
+        "name": "Grundschule",
+        "description": null,
+        "date": "2003-08-01",
+        "branch_id": 4,
+        "category_id": 8,
+        "category": {
+            "id": 8,
+            "name": "Eintritt"
+        },
+        "branch": {
+            "id": 4,
+            "name": "Bildung"
+        }
+    },
+    {
+        "id": 23,
+        "name": "Geburt",
+        "description": null,
+        "date": "1997",
+        "branch_id": 3,
+        "category_id": 7,
+        "category": {
+            "id": 7,
+            "name": "Personelles"
+        },
+        "branch": {
+            "id": 3,
+            "name": "Privat"
+        }
+    },
+    {
+        "id": 43,
+        "name": "Einstieg in die Aquaristik",
+        "description": "Beginn eines neuen Hobbys rund um Aquarien und ihre Pflege.",
+        "date": "2026-09-01",
+        "branch_id": 3,
+        "category_id": 15,
+        "category": {
+            "id": 15,
+            "name": "Hobby"
+        },
+        "branch": {
+            "id": 3,
+            "name": "Privat"
+        }
+    },
+    {
+        "id": 44,
+        "name": "Erstes eigenes Motorrad",
+        "description": "Kauf einer Voge DS900X.",
+        "date": "2026-05-01",
+        "branch_id": 3,
+        "category_id": 15,
+        "category": {
+            "id": 15,
+            "name": "Hobby"
+        },
+        "branch": {
+            "id": 3,
+            "name": "Privat"
+        }
+    }
+]

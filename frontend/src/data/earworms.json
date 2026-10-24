@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "Wackelkontakt",
+        "spotify_id": "4x7j9ed3FRH6CHj27kiTQ3",
+        "is_active": true,
+        "date": "2025-03-25"
+    },
+    {
+        "id": 2,
+        "name": "ALL IN (Lieblingslieder)",
+        "spotify_id": "3VIEbpdr64a1mNSa8MqBAm",
+        "is_active": true,
+        "date": "2025-03-25"
+    }
+]

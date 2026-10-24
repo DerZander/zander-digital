@@ -274,5 +274,53 @@
       "id": 3,
       "name": "Privat"
     }
+  },
+  {
+    "id": 10,
+    "name": "AdventOfPython",
+    "description": "Meine Python-Lösungen zu den Rätseln von Advent of Code, mit Fokus auf gut nachvollziehbare Lösungsansätze.",
+    "start_date": "2023-12-03",
+    "end_date": null,
+    "repository_url": "https://github.com/DerZander/AdventOfPython",
+    "branch_id": 3,
+    "skills": [
+      {
+        "id": 1,
+        "name": "Python",
+        "xp": 0,
+        "description": "Vielseitige Programmiersprache für Web, Data Science und Automatisierung",
+        "since": "2019-03-01",
+        "is_favorite": true,
+        "category_id": 1
+      }
+    ],
+    "branch": {
+      "id": 3,
+      "name": "Privat"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Version Control Center",
+    "description": "Eine Windows-Desktopanwendung zur übersichtlichen Verwaltung von Git-Repositories. Entwickelt mit Electron, React und TypeScript.",
+    "start_date": "2026-10-23",
+    "end_date": null,
+    "repository_url": "https://github.com/DerZander/VersionControlCenter",
+    "branch_id": 3,
+    "skills": [
+      {
+        "id": 13,
+        "name": "React",
+        "xp": 780,
+        "description": "JavaScript-Bibliothek für UI-Komponenten",
+        "since": "2020-02-01",
+        "is_favorite": true,
+        "category_id": 2
+      }
+    ],
+    "branch": {
+      "id": 3,
+      "name": "Privat"
+    }
   }
 ]

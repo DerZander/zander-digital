@@ -1,13 +1,9 @@
 import {ArrowForward, CodeRounded, LightbulbOutlined, PsychologyOutlined, SchoolOutlined} from "@mui/icons-material";
-import {Accordion, AccordionDetails, AccordionSummary, Avatar, Box, Button, Card, CardContent, Chip, IconButton, Stack, Typography} from "@mui/material";
-import {useState} from "react";
+import {Accordion, AccordionDetails, AccordionSummary, Avatar, Box, Button, Card, CardContent, Chip, Stack, Typography} from "@mui/material";
 import {motion as Motion} from "framer-motion";
 import {Link} from "react-router-dom";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import meImage from "../assets/images/me.jpeg";
-import earworms from "../data/earworms.json";
 
 const hobbies = [
     "🔥 Feuerwehr",
@@ -16,49 +12,24 @@ const hobbies = [
     "🎮 Gaming",
     "🏍️ Motorrad",
     "🌍 Reisen",
+    "🐠 Aquaristik",
     "🐈 Katzen",
     "☕ Kaffee",
 ];
 
-function OhrwurmPlayer() {
-    const [currentSong, setCurrentSong] = useState(0);
-    const songs = earworms.filter((song) => song.is_active);
-
-    if (songs.length === 0) {
-        return null;
-    }
-
-    const song = songs[currentSong % songs.length];
-
-    const changeSong = (direction) => {
-        setCurrentSong((previous) => (previous + direction + songs.length) % songs.length);
-    };
-
+function SpotifyPlaylist() {
     return (
-        <Box sx={{display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mt: 1}}>
-            {songs.length > 1 && (
-                <IconButton aria-label="Vorheriger Ohrwurm" onClick={() => changeSong(-1)} sx={{color: "var(--color-text)"}}>
-                    <KeyboardArrowLeft fontSize="large"/>
-                </IconButton>
-            )}
-            <Box sx={{minWidth: 0, textAlign: "center"}}>
-                <Typography variant="subtitle1" fontWeight={700} mb={1}>Mein aktueller Ohrwurm</Typography>
-                <iframe
-                    title={`Spotify-Player: ${song.name}`}
-                    src={`https://open.spotify.com/embed/track/${song.spotify_id}?utm_source=generator`}
-                    width="300"
-                    height="80"
-                    frameBorder="0"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    style={{maxWidth: "100%", borderRadius: "12px"}}
-                />
-            </Box>
-            {songs.length > 1 && (
-                <IconButton aria-label="Nächster Ohrwurm" onClick={() => changeSong(1)} sx={{color: "var(--color-text)"}}>
-                    <KeyboardArrowRight fontSize="large"/>
-                </IconButton>
-            )}
+        <Box sx={{width: "100%", minWidth: 0}}>
+            <iframe
+                title="Spotify-Playlist: On Repeat"
+                src="https://open.spotify.com/embed/playlist/37i9dQZF1EpsZrtMu7DdqI?theme=0"
+                width="100%"
+                height="352"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                style={{display: "block", border: 0, borderRadius: "12px"}}
+            />
         </Box>
     );
 }
@@ -203,9 +174,10 @@ export default function PersonPage() {
                 <Box sx={{display: "grid", gridTemplateColumns: {xs: "1fr", md: "1fr 1fr"}, alignItems: "center", gap: 3, p: {xs: 2.5, sm: 4}, border: "1px solid rgba(var(--color-border-rgb),0.12)", borderRadius: 4, bgcolor: "rgba(var(--color-surface-rgb),0.58)"}}>
                     <Box>
                         <Typography sx={{color: "var(--color-muted)", lineHeight: 1.8, mb: 2.5}}>
-                            Wenn ich nicht gerade an einer kniffligen Aufgabe tüftle, verbringe ich
-                            meine Zeit gern bei der Feuerwehr, am Spieltisch oder mit einem meiner
-                            vielen Interessen. Neugier hört für mich nicht beim Programmieren auf.
+                            Neben der Jugendarbeit und dem aktiven Dienst bei der Feuerwehr gehören
+                            Motorradfahren, DnD- und Spieleabende, Gaming und Programmieren zu meinen
+                            Interessen. Zum Ausgleich mag ich Wellness und Reisen – und ich entdecke
+                            gern Neues.
                         </Typography>
                         <Stack direction="row" flexWrap="wrap" gap={1}>
                             {hobbies.map((hobby) => (
@@ -213,7 +185,7 @@ export default function PersonPage() {
                             ))}
                         </Stack>
                     </Box>
-                    <OhrwurmPlayer/>
+                    <SpotifyPlaylist/>
                 </Box>
             </Box>
         </Box>

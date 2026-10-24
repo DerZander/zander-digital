@@ -262,33 +262,6 @@
     }
 }
 
-@media (max-width: 600px) {
-    .timeline-list.MuiTimeline-root {
-        padding-right: 0;
-        padding-left: 0;
-    }
-
-    .timeline-list .MuiTimelineItem-root {
-        flex-direction: row !important;
-        min-height: auto;
-    }
-
-    .timeline-list .MuiTimelineItem-root::before {
-        flex: 0;
-        padding: 0;
-    }
-
-    .timeline-list .MuiTimelineSeparator-root {
-        flex: 0 0 40px;
-    }
-
-    .timeline-list .MuiTimelineContent-root {
-        flex: 1 1 auto;
-        padding: 8px 12px;
-        text-align: left;
-    }
-}
-
 @media (max-width: 420px) {
     .landing {
         padding-inline: 20px;

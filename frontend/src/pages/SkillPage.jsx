@@ -1,4 +1,4 @@
-import {useEffect, useMemo, useState} from "react";
+import {useMemo} from "react";
 import {motion as Motion} from "framer-motion";
 import {
     AccountTree as AccountTreeIcon,
@@ -8,8 +8,8 @@ import {
     Star as StarIcon,
     Storage as StorageIcon,
 } from "@mui/icons-material";
-import {Alert, Box, Card, CardContent, Chip, CircularProgress, Stack, Typography} from "@mui/material";
-import {API_URL} from "../config.js";
+import {Box, Card, CardContent, Chip, Stack, Typography} from "@mui/material";
+import skills from "../data/skills.json";
 import {formatDate} from "../utils/utils.jsx";
 
 const categoryDetails = {
@@ -78,11 +78,8 @@ function SkillCard({skill, index}) {
                             <StarIcon aria-label="Persönlicher Schwerpunkt" sx={{color: "var(--color-accent)", fontSize: 19}}/>
                         )}
                     </Stack>
-                    <Typography variant="body2" sx={{color: "var(--color-muted)", lineHeight: 1.65}}>
-                        {skill.description}
-                    </Typography>
                     {skill.since && (
-                        <Typography variant="caption" sx={{display: "block", mt: 1.5, color: "var(--color-muted)", opacity: 0.8}}>
+                        <Typography variant="caption" sx={{display: "block", color: "var(--color-muted)", opacity: 0.8}}>
                             Seit {formatDate(skill.since)}
                         </Typography>
                     )}
@@ -93,29 +90,6 @@ function SkillCard({skill, index}) {
 }
 
 function SkillGridPage() {
-    const [skills, setSkills] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
-
-    useEffect(() => {
-        fetch(`${API_URL}/skills/`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`Fehler beim Laden der Skills: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then((data) => {
-                setSkills(data);
-                setLoading(false);
-            })
-            .catch((err) => {
-                console.error(err);
-                setError("Die Skills konnten nicht geladen werden. Bitte versuche es später erneut.");
-                setLoading(false);
-            });
-    }, []);
-
     const groupedSkills = useMemo(() => {
         const groups = new Map();
         skills.forEach((skill) => {
@@ -139,13 +113,13 @@ function SkillGridPage() {
                     return favoriteDifference || a.name.localeCompare(b.name, "de");
                 }),
             }));
-    }, [skills]);
+    }, []);
 
     const featuredSkills = useMemo(
         () => featuredSkillNames
             .map((name) => skills.find((skill) => skill.name.toLowerCase() === name.toLowerCase()))
             .filter(Boolean),
-        [skills],
+        [],
     );
 
     return (
@@ -163,14 +137,7 @@ function SkillGridPage() {
                 </Typography>
             </Box>
 
-            {loading ? (
-                <Box role="status" aria-label="Skills werden geladen" sx={{display: "flex", justifyContent: "center", py: 8}}>
-                    <CircularProgress color="primary"/>
-                </Box>
-            ) : error ? (
-                <Alert severity="error" sx={{maxWidth: 700, mx: "auto"}}>{error}</Alert>
-            ) : (
-                <>
+            <>
                     {featuredSkills.length > 0 && (
                         <Box component="section" aria-labelledby="featured-skills-heading" sx={{mb: {xs: 5, md: 7}}}>
                             <Typography id="featured-skills-heading" component="h2" variant="h5" fontWeight={700} mb={2}>
@@ -213,8 +180,7 @@ function SkillGridPage() {
                         Ein Stern markiert persönliche Schwerpunkte. Die Skills sind bewusst nach Themen
                         statt nach einer künstlichen Punktzahl sortiert.
                     </Typography>
-                </>
-            )}
+            </>
         </Box>
     );
 }

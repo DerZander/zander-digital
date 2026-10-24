@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {AppBar, Box, Button, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography, useMediaQuery} from "@mui/material";
+import {AppBar, Box, Button, Divider, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography, useMediaQuery} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
@@ -96,22 +96,31 @@ export default function Navigation({isLight, onToggleTheme}) {
                                     </Box>
                                 </MenuItem>
                             ))}
+                            <Divider sx={{my: 0.75, borderColor: "rgba(var(--color-border-rgb),0.12)"}}/>
+                            <MenuItem onClick={onToggleTheme}>
+                                <Box sx={{display: "flex", alignItems: "center", gap: 1.5, color: "var(--color-accent)"}}>
+                                    {isLight ? <DarkModeIcon/> : <LightModeIcon/>}
+                                    {isLight ? "Dunkelmodus" : "Hellmodus"}
+                                </Box>
+                            </MenuItem>
                         </Menu>
                     </>
                 )}
-                <Tooltip title={isLight ? "Zum Dunkelmodus wechseln" : "Zum Hellmodus wechseln"}>
-                    <IconButton
-                        aria-label={isLight ? "Zum Dunkelmodus wechseln" : "Zum Hellmodus wechseln"}
-                        onClick={onToggleTheme}
-                        sx={{
-                            ml: isDesktop ? 1 : 0,
-                            color: "var(--color-accent)",
-                            border: "1px solid rgba(var(--color-accent-rgb), 0.22)",
-                        }}
-                    >
-                        {isLight ? <DarkModeIcon/> : <LightModeIcon/>}
-                    </IconButton>
-                </Tooltip>
+                {isDesktop && (
+                    <Tooltip title={isLight ? "Zum Dunkelmodus wechseln" : "Zum Hellmodus wechseln"}>
+                        <IconButton
+                            aria-label={isLight ? "Zum Dunkelmodus wechseln" : "Zum Hellmodus wechseln"}
+                            onClick={onToggleTheme}
+                            sx={{
+                                ml: 1,
+                                color: "var(--color-accent)",
+                                border: "1px solid rgba(var(--color-accent-rgb), 0.22)",
+                            }}
+                        >
+                            {isLight ? <DarkModeIcon/> : <LightModeIcon/>}
+                        </IconButton>
+                    </Tooltip>
+                )}
             </Toolbar>
         </AppBar>
     );

@@ -1,0 +1,390 @@
+[
+  {
+    "id": 1,
+    "name": "Feuerwehr",
+    "achievements": [
+      {
+        "id": 1,
+        "name": "Truppmannausbildung Modul 2 und 4",
+        "description": null,
+        "date": "2015-03-14",
+        "branch_id": 1,
+        "category_id": 3
+      },
+      {
+        "id": 2,
+        "name": "Truppmannausbildung Modul 1 und 3",
+        "description": null,
+        "date": "2016-03-19",
+        "branch_id": 1,
+        "category_id": 3
+      },
+      {
+        "id": 3,
+        "name": "Oberfeuerwehrmann",
+        "description": null,
+        "date": "2018-03-17",
+        "branch_id": 1,
+        "category_id": 2
+      },
+      {
+        "id": 4,
+        "name": "Stv. Jugendfeuerwehrwart",
+        "description": "Ernennung zum Stellvertretender Jugendwart der Einheit Bedburg",
+        "date": "2019-01-01",
+        "branch_id": 1,
+        "category_id": 1
+      },
+      {
+        "id": 5,
+        "name": "Sprechfunker",
+        "description": null,
+        "date": "2015-11-28",
+        "branch_id": 1,
+        "category_id": 3
+      },
+      {
+        "id": 6,
+        "name": "Feuerwehrleistungsabzeichen in Bronze",
+        "description": null,
+        "date": "2016-09-04",
+        "branch_id": 1,
+        "category_id": 4
+      },
+      {
+        "id": 7,
+        "name": "JF-Fortbildung: Öffentlichkeitsarbeit / Gestaltung von Übungsdiensten",
+        "description": null,
+        "date": "2016-10-15",
+        "branch_id": 1,
+        "category_id": 3
+      },
+      {
+        "id": 8,
+        "name": "Atemschutzgeräteträger",
+        "description": null,
+        "date": "2016-11-19",
+        "branch_id": 1,
+        "category_id": 3
+      },
+      {
+        "id": 9,
+        "name": "JF-Fortbildung: Kinderschutz",
+        "description": null,
+        "date": "2017-03-11",
+        "branch_id": 1,
+        "category_id": 3
+      },
+      {
+        "id": 10,
+        "name": "JF-Fortbildung: Gruppendynamische Spiele (Theorie und Praxis)",
+        "description": null,
+        "date": "2017-07-01",
+        "branch_id": 1,
+        "category_id": 3
+      },
+      {
+        "id": 11,
+        "name": "JF-Fortbildung: Jugendschutz / Waffengewalt",
+        "description": null,
+        "date": "2017-12-09",
+        "branch_id": 1,
+        "category_id": 3
+      },
+      {
+        "id": 12,
+        "name": "Führungshilfspersonal (ELW) - Grundausbildung",
+        "description": null,
+        "date": "2018-07-21",
+        "branch_id": 1,
+        "category_id": 3
+      },
+      {
+        "id": 13,
+        "name": "Feuerwehrleistungsabzeichen in Silber",
+        "description": null,
+        "date": "2018-09-08",
+        "branch_id": 1,
+        "category_id": 4
+      },
+      {
+        "id": 14,
+        "name": "Truppführer",
+        "description": null,
+        "date": "2019-04-06",
+        "branch_id": 1,
+        "category_id": 3
+      },
+      {
+        "id": 15,
+        "name": "Machinist",
+        "description": null,
+        "date": "2019-07-13",
+        "branch_id": 1,
+        "category_id": 3
+      },
+      {
+        "id": 16,
+        "name": "Unterbrandmeister",
+        "description": null,
+        "date": "2020-03-21",
+        "branch_id": 1,
+        "category_id": 2
+      },
+      {
+        "id": 17,
+        "name": "Stv. Jugendfeuerwehrwart",
+        "description": null,
+        "date": "2020-12-31",
+        "branch_id": 1,
+        "category_id": 5
+      },
+      {
+        "id": 18,
+        "name": "Unwetterkatastrophe 2021",
+        "description": null,
+        "date": "2022-01-01",
+        "branch_id": 1,
+        "category_id": 4
+      },
+      {
+        "id": 20,
+        "name": "Feuerwehrleistungsabzeichen in Gold",
+        "description": null,
+        "date": "2022-09-17",
+        "branch_id": 1,
+        "category_id": 4
+      },
+      {
+        "id": 21,
+        "name": "JF-Fortbildung: Methodik / Didaktik und gruppendynamische Spiele",
+        "description": null,
+        "date": "2023-11-19",
+        "branch_id": 1,
+        "category_id": 3
+      },
+      {
+        "id": 22,
+        "name": "Jugendfeuerwehrwart",
+        "description": null,
+        "date": "2024-03-16",
+        "branch_id": 1,
+        "category_id": 1
+      },
+      {
+        "id": 31,
+        "name": "Jugendfeuerwehr",
+        "description": "Eintritt in die Jugendfeuerwehr der Einheit Bedburg",
+        "date": "2009-07-01",
+        "branch_id": 1,
+        "category_id": 8
+      },
+      {
+        "id": 32,
+        "name": "Aktive Wehr",
+        "description": "Eintritt in die Aktive Wehr der Einheit Bedburg",
+        "date": "2015-03-02",
+        "branch_id": 1,
+        "category_id": 8
+      },
+      {
+        "id": 33,
+        "name": "Aktive Wehr",
+        "description": "Eintritt in die Aktive Wehr der Einheit Gustorf",
+        "date": "2025-03-19",
+        "branch_id": 1,
+        "category_id": 8
+      },
+      {
+        "id": 38,
+        "name": "JuLeiCa Schulung",
+        "description": null,
+        "date": "2025-04-01",
+        "branch_id": 1,
+        "category_id": 3
+      }
+    ],
+    "projects": []
+  },
+  {
+    "id": 2,
+    "name": "Arbeit",
+    "achievements": [
+      {
+        "id": 34,
+        "name": "Santander Consumer Bank AG",
+        "description": "Start der Ausbildung zum Kaufmann für Büromanagement",
+        "date": "2016-08-01",
+        "branch_id": 2,
+        "category_id": 8
+      },
+      {
+        "id": 35,
+        "name": "Santander Consumer Technology Services",
+        "description": "Wechsel zur Tochtergesellschaft der SCB für den Start des Dualen Studiums",
+        "date": "2019-02-01",
+        "branch_id": 2,
+        "category_id": 8
+      }
+    ],
+    "projects": [
+      {
+        "id": 1,
+        "name": "Dealer Rating",
+        "description": "Interne Access Datenbank zum Erstellen von Verträgen",
+        "start_date": "2019-02-01",
+        "end_date": "2019-09-01",
+        "branch_id": 2
+      },
+      {
+        "id": 2,
+        "name": "Crossroad (Sawima)",
+        "description": "Eine Ablöse für eine interne Stellenbörse",
+        "start_date": "2019-06-01",
+        "end_date": "2020-06-01",
+        "branch_id": 2
+      },
+      {
+        "id": 3,
+        "name": "Statistic Report für Crossroad",
+        "description": "Eine Webapp für einen Statistik report für die internen Stellenbörse",
+        "start_date": "2020-03-01",
+        "end_date": "2020-11-01",
+        "branch_id": 2
+      },
+      {
+        "id": 4,
+        "name": "Orderportal",
+        "description": "Ein internes Bestellportal um Hard- und Software zu bestellen",
+        "start_date": "2020-09-01",
+        "end_date": "2022-04-01",
+        "branch_id": 2
+      },
+      {
+        "id": 5,
+        "name": "Banksrating",
+        "description": "Eine Webapplikation um eine Kreditentscheidung von anderen Banken zu berechnen",
+        "start_date": "2022-05-01",
+        "end_date": null,
+        "branch_id": 2
+      },
+      {
+        "id": 6,
+        "name": "SAL",
+        "description": "Eine Serviceapplikation, welcher mehrere kleinere Services aufruft und ein gesamt Objekt erstellt. ",
+        "start_date": "2023-07-01",
+        "end_date": null,
+        "branch_id": 2
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Privat",
+    "achievements": [
+      {
+        "id": 23,
+        "name": "Geburt",
+        "description": null,
+        "date": "1997-02-25",
+        "branch_id": 3,
+        "category_id": 7
+      },
+      {
+        "id": 24,
+        "name": "Führerscheinklasse B AM L",
+        "description": "Die Klasse B ist mit 194 gekennzeichnet",
+        "date": "2016-12-22",
+        "branch_id": 3,
+        "category_id": 6
+      },
+      {
+        "id": 25,
+        "name": "Führerscheinklasse A A1 A2",
+        "description": null,
+        "date": "2024-10-22",
+        "branch_id": 3,
+        "category_id": 6
+      },
+      {
+        "id": 26,
+        "name": "Führerscheinklasse C C1",
+        "description": null,
+        "date": "2024-11-05",
+        "branch_id": 3,
+        "category_id": 6
+      }
+    ],
+    "projects": [
+      {
+        "id": 7,
+        "name": "ZanderDigital",
+        "description": "Meine Portfolioseite",
+        "start_date": "2025-03-01",
+        "end_date": null,
+        "branch_id": 3
+      },
+      {
+        "id": 9,
+        "name": "NationalLivingDex",
+        "description": "Eine Webapp, welche zum erstellen eines Livingdex von Pokemon helfen soll. Die Daten werden im Local Storage gespeichert",
+        "start_date": "2024-02-20",
+        "end_date": "2024-03-01",
+        "branch_id": 3
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Bildung",
+    "achievements": [
+      {
+        "id": 27,
+        "name": "Bachelor of Science: Wirtschaftsinformatiker",
+        "description": null,
+        "date": "2023-07-21",
+        "branch_id": 4,
+        "category_id": 3
+      },
+      {
+        "id": 28,
+        "name": "Fachhochschulreife",
+        "description": null,
+        "date": "2016-06-30",
+        "branch_id": 4,
+        "category_id": 3
+      },
+      {
+        "id": 29,
+        "name": "Kaufmann für Büromanagement",
+        "description": null,
+        "date": "2019-01-07",
+        "branch_id": 4,
+        "category_id": 3
+      },
+      {
+        "id": 30,
+        "name": "Mittlere Reife",
+        "description": null,
+        "date": "2013-06-01",
+        "branch_id": 4,
+        "category_id": 3
+      },
+      {
+        "id": 37,
+        "name": "Grundschule",
+        "description": null,
+        "date": "2003-08-01",
+        "branch_id": 4,
+        "category_id": 8
+      }
+    ],
+    "projects": []
+  },
+  {
+    "id": 5,
+    "name": "Programmierung",
+    "achievements": [],
+    "projects": []
+  }
+]

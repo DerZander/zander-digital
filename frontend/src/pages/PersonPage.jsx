@@ -1,12 +1,13 @@
 import {ArrowForward, CodeRounded, LightbulbOutlined, PsychologyOutlined, SchoolOutlined} from "@mui/icons-material";
-import {Avatar, Box, Button, Card, CardContent, Chip, IconButton, Stack, Typography} from "@mui/material";
-import {useEffect, useState} from "react";
+import {Accordion, AccordionDetails, AccordionSummary, Avatar, Box, Button, Card, CardContent, Chip, IconButton, Stack, Typography} from "@mui/material";
+import {useState} from "react";
 import {motion as Motion} from "framer-motion";
 import {Link} from "react-router-dom";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 import meImage from "../assets/images/me.jpeg";
-import {API_URL} from "../config.js";
+import earworms from "../data/earworms.json";
 
 const hobbies = [
     "🔥 Feuerwehr",
@@ -19,24 +20,14 @@ const hobbies = [
     "☕ Kaffee",
 ];
 
-const defaultSongs = [
-    {name: "Wackelkontakt", spotify_id: "4x7j9ed3FRH6CHj27kiTQ3"},
-    {name: "ALL IN (Lieblingslieder)", spotify_id: "3VIEbpdr64a1mNSa8MqBAm"},
-    {name: "Immer Wieder", spotify_id: "2SuOdpmDdTk4U0aWH5SQDW"},
-];
-
 function OhrwurmPlayer() {
     const [currentSong, setCurrentSong] = useState(0);
-    const [dbSongs, setDbSongs] = useState([]);
+    const songs = earworms.filter((song) => song.is_active);
 
-    useEffect(() => {
-        fetch(`${API_URL}/earworms/active`)
-            .then((res) => res.json())
-            .then((data) => setDbSongs(data))
-            .catch((err) => console.error(err));
-    }, []);
+    if (songs.length === 0) {
+        return null;
+    }
 
-    const songs = dbSongs.length > 0 ? dbSongs : defaultSongs;
     const song = songs[currentSong % songs.length];
 
     const changeSong = (direction) => {
@@ -45,9 +36,11 @@ function OhrwurmPlayer() {
 
     return (
         <Box sx={{display: "flex", alignItems: "center", justifyContent: "center", gap: 1, mt: 1}}>
-            <IconButton aria-label="Vorheriger Ohrwurm" onClick={() => changeSong(-1)} sx={{color: "var(--color-text)"}}>
-                <KeyboardArrowLeft fontSize="large"/>
-            </IconButton>
+            {songs.length > 1 && (
+                <IconButton aria-label="Vorheriger Ohrwurm" onClick={() => changeSong(-1)} sx={{color: "var(--color-text)"}}>
+                    <KeyboardArrowLeft fontSize="large"/>
+                </IconButton>
+            )}
             <Box sx={{minWidth: 0, textAlign: "center"}}>
                 <Typography variant="subtitle1" fontWeight={700} mb={1}>Mein aktueller Ohrwurm</Typography>
                 <iframe
@@ -61,9 +54,11 @@ function OhrwurmPlayer() {
                     style={{maxWidth: "100%", borderRadius: "12px"}}
                 />
             </Box>
-            <IconButton aria-label="Nächster Ohrwurm" onClick={() => changeSong(1)} sx={{color: "var(--color-text)"}}>
-                <KeyboardArrowRight fontSize="large"/>
-            </IconButton>
+            {songs.length > 1 && (
+                <IconButton aria-label="Nächster Ohrwurm" onClick={() => changeSong(1)} sx={{color: "var(--color-text)"}}>
+                    <KeyboardArrowRight fontSize="large"/>
+                </IconButton>
+            )}
         </Box>
     );
 }
@@ -71,18 +66,18 @@ function OhrwurmPlayer() {
 const profileCards = [
     {
         icon: <CodeRounded/>,
-        title: "Im Beruf",
-        text: "Ich entwickle vor allem mit Spring Boot und bringe Erfahrung mit React mit. Zuvor habe ich einen Backend-Service umgesetzt, der Antworten verschiedener Schnittstellen zusammenführt. Aktuell arbeite ich an Anwendungen im Finanzumfeld, die Kreditentscheidungen und Risikobewertungen unterstützen.",
-    },
-    {
-        icon: <SchoolOutlined/>,
-        title: "Bachelorarbeit",
-        text: "Ich überarbeite einen bestehenden Service für Bankenratings als Full-Stack-Anwendung mit Spring Boot und React. Dabei habe ich ein Datenbankschema mit einer Tabelle von über 280 Spalten in mehrere sinnvoll strukturierte Tabellen aufgeteilt – die größte davon hat jetzt 78 Spalten.",
+        title: "Beruf",
+        text: "Als Softwareentwickler arbeite ich vor allem mit Java und Spring Boot. Mein Schwerpunkt liegt auf Backend-Anwendungen, die Kreditentscheidungen und Risikobewertungen unterstützen. Auch mit React setze ich moderne Weboberflächen um.",
     },
     {
         icon: <PsychologyOutlined/>,
         title: "Was mich antreibt",
         text: "Knifflige Probleme wecken meinen Ehrgeiz – ob im Arbeitsalltag oder bei Advent of Code. Ich bin neugierig, bleibe hartnäckig an einer Lösung dran und freue mich, wenn daraus etwas entsteht, das Menschen wirklich weiterhilft.",
+    },
+    {
+        icon: <SchoolOutlined/>,
+        title: "Jugendarbeit",
+        text: "Die Feuerwehr-Jugendarbeit liegt mir besonders am Herzen. Auf Stadtebene treten wir gemeinsam als Team unter dem Motto „Next Generation“ auf. Es bedeutet mir viel, junge Menschen zu begleiten, ihre Begeisterung für die Feuerwehr zu stärken und gemeinsam mit dem Team einen Ort zu schaffen, an dem sie sich entwickeln und dazugehören können.",
     },
 ];
 
@@ -178,6 +173,27 @@ export default function PersonPage() {
                         </Card>
                     ))}
                 </Box>
+                <Accordion
+                    elevation={0}
+                    sx={{
+                        mt: 2,
+                        border: "1px solid rgba(var(--color-border-rgb),0.12)",
+                        borderRadius: "12px !important",
+                        bgcolor: "rgba(var(--color-surface-rgb),0.76)",
+                        color: "var(--color-text)",
+                        "&:before": {display: "none"},
+                    }}
+                >
+                    <AccordionSummary expandIcon={<ExpandMore sx={{color: "var(--color-text)"}}/>}>
+                        <Typography fontWeight={700}>Einblick in meine Bachelorarbeit</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails sx={{color: "var(--color-muted)", lineHeight: 1.75}}>
+                        Mein Bachelorstudium der Wirtschaftsinformatik habe ich mit dem Bachelor of
+                        Science abgeschlossen. In meiner Bachelorarbeit entwickelte ich einen
+                        bestehenden Service für Bankenratings mit Spring Boot und React weiter und
+                        strukturierte dabei ein umfangreiches Datenbankschema neu.
+                    </AccordionDetails>
+                </Accordion>
             </Box>
 
             <Box component="section" aria-labelledby="about-personal-heading">

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "school": "Arnold-von-Harff-Schule Bedburg",
+    "degree": "Fachoberschulreife",
+    "field_of_study": null,
+    "start_date": "2007-08-01",
+    "end_date": "2013-06-01",
+    "activities": null,
+    "description": null
+  },
+  {
+    "id": 2,
+    "school": "BBZ Grevenbroich",
+    "degree": "Fachhochschule - Wirtschaft",
+    "field_of_study": null,
+    "start_date": "2013-08-01",
+    "end_date": "2016-06-01",
+    "activities": null,
+    "description": null
+  },
+  {
+    "id": 3,
+    "school": "FOM Düsseldorf",
+    "degree": "B. Sc. in Wirtschaftsinformatik",
+    "field_of_study": "Thesis Titel:\nReengineering einer Webapplikation zur internen Bonitätsprüfung\nim Bankenbereich",
+    "start_date": "2019-09-01",
+    "end_date": "2023-06-30",
+    "activities": null,
+    "description": null
+  }
+]

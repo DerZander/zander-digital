@@ -1,0 +1,278 @@
+[
+  {
+    "id": 1,
+    "name": "Bewertungsanwendung",
+    "description": "Weiterentwicklung einer Anwendung zur Unterstützung von Bewertungs- und Vertragsprozessen.",
+    "start_date": "2019-02-01",
+    "end_date": "2019-09-01",
+    "branch_id": 2,
+    "skills": [
+      {
+        "id": 25,
+        "name": "VBA",
+        "xp": 260,
+        "description": "Makrosprache für Microsoft Office Anwendungen",
+        "since": "2016-04-01",
+        "is_favorite": false,
+        "category_id": 1
+      }
+    ],
+    "branch": {
+      "id": 2,
+      "name": "Arbeit"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Interne Webplattform",
+    "description": "Ablösung einer bestehenden Plattform durch eine moderne Webanwendung.",
+    "start_date": "2019-06-01",
+    "end_date": "2020-06-01",
+    "branch_id": 2,
+    "skills": [
+      {
+        "id": 14,
+        "name": "Vue.js",
+        "xp": 690,
+        "description": "Fortschrittliches JavaScript-Framework für UIs",
+        "since": "2019-06-01",
+        "is_favorite": false,
+        "category_id": 2
+      },
+      {
+        "id": 17,
+        "name": "Django",
+        "xp": 860,
+        "description": "High-Level Webframework in Python",
+        "since": "2019-06-01",
+        "is_favorite": true,
+        "category_id": 2
+      },
+      {
+        "id": 24,
+        "name": "PostgreSQl",
+        "xp": 1000,
+        "description": "Mächtige objekt-relationales Datenbanksystem",
+        "since": "2019-09-01",
+        "is_favorite": true,
+        "category_id": 5
+      }
+    ],
+    "branch": {
+      "id": 2,
+      "name": "Arbeit"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Reporting-Anwendung",
+    "description": "Webbasierte Auswertung von Kennzahlen und statistischen Daten für interne Berichte.",
+    "start_date": "2020-03-01",
+    "end_date": "2020-11-01",
+    "branch_id": 2,
+    "skills": [
+      {
+        "id": 16,
+        "name": "Flask",
+        "xp": 860,
+        "description": "Leichtgewichtiges Python-Webframework",
+        "since": "2020-02-01",
+        "is_favorite": true,
+        "category_id": 2
+      },
+      {
+        "id": 24,
+        "name": "PostgreSQl",
+        "xp": 1000,
+        "description": "Mächtige objekt-relationales Datenbanksystem",
+        "since": "2019-09-01",
+        "is_favorite": true,
+        "category_id": 5
+      }
+    ],
+    "branch": {
+      "id": 2,
+      "name": "Arbeit"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Bestellportal",
+    "description": "Entwicklung eines internen Portals zur Verwaltung und Bestellung von Arbeitsmitteln.",
+    "start_date": "2020-09-01",
+    "end_date": "2022-04-01",
+    "branch_id": 2,
+    "skills": [
+      {
+        "id": 8,
+        "name": "Nodered",
+        "xp": 950,
+        "description": "Visuelle Programmierumgebung für IoT & Automatisierungen",
+        "since": "2020-06-01",
+        "is_favorite": true,
+        "category_id": 3
+      },
+      {
+        "id": 14,
+        "name": "Vue.js",
+        "xp": 690,
+        "description": "Fortschrittliches JavaScript-Framework für UIs",
+        "since": "2019-06-01",
+        "is_favorite": false,
+        "category_id": 2
+      },
+      {
+        "id": 24,
+        "name": "PostgreSQl",
+        "xp": 1000,
+        "description": "Mächtige objekt-relationales Datenbanksystem",
+        "since": "2019-09-01",
+        "is_favorite": true,
+        "category_id": 5
+      }
+    ],
+    "branch": {
+      "id": 2,
+      "name": "Arbeit"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Bankenrating-Anwendung",
+    "description": "Konzeption und Full-Stack-Neuentwicklung eines Services zur Bewertung der Bonität von Banken. Dabei wurde ein überladenes Datenmodell in mehrere klar strukturierte Tabellen aufgeteilt.",
+    "start_date": "2022-05-01",
+    "end_date": null,
+    "branch_id": 2,
+    "skills": [
+      {
+        "id": 13,
+        "name": "React",
+        "xp": 780,
+        "description": "JavaScript-Bibliothek für UI-Komponenten",
+        "since": "2020-02-01",
+        "is_favorite": true,
+        "category_id": 2
+      },
+      {
+        "id": 15,
+        "name": "Springboot",
+        "xp": 780,
+        "description": "Framework für schnelles Java-Web-Backend",
+        "since": "2020-02-01",
+        "is_favorite": false,
+        "category_id": 2
+      },
+      {
+        "id": 24,
+        "name": "PostgreSQl",
+        "xp": 1000,
+        "description": "Mächtige objekt-relationales Datenbanksystem",
+        "since": "2019-09-01",
+        "is_favorite": true,
+        "category_id": 5
+      }
+    ],
+    "branch": {
+      "id": 2,
+      "name": "Arbeit"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Backend-Service zur Datenintegration",
+    "description": "Entwicklung und Erweiterung eines Spring-Boot-Services, der mehrere Schnittstellen abfragt und ihre Antworten zu einem einheitlichen Ergebnis zusammenführt.",
+    "start_date": "2023-07-01",
+    "end_date": null,
+    "branch_id": 2,
+    "skills": [
+      {
+        "id": 1,
+        "name": "Python",
+        "xp": 1000,
+        "description": "Vielseitige Programmiersprache für Web, Data Science & Automatisierung",
+        "since": "2019-03-01",
+        "is_favorite": true,
+        "category_id": 1
+      },
+      {
+        "id": 15,
+        "name": "Springboot",
+        "xp": 780,
+        "description": "Framework für schnelles Java-Web-Backend",
+        "since": "2020-02-01",
+        "is_favorite": false,
+        "category_id": 2
+      }
+    ],
+    "branch": {
+      "id": 2,
+      "name": "Arbeit"
+    }
+  },
+  {
+    "id": 7,
+    "name": "ZanderDigital",
+    "description": "Meine Portfolioseite",
+    "start_date": "2025-03-01",
+    "end_date": null,
+    "repository_url": "https://github.com/DerZander/zander-digital",
+    "live_url": "https://zander.digital",
+    "branch_id": 3,
+    "skills": [
+      {
+        "id": 13,
+        "name": "React",
+        "xp": 780,
+        "description": "JavaScript-Bibliothek für UI-Komponenten",
+        "since": "2020-02-01",
+        "is_favorite": true,
+        "category_id": 2
+      },
+      {
+        "id": 23,
+        "name": "MariaDB",
+        "xp": 1000,
+        "description": "MySQL-kompatibles Open-Source-Datenbanksystem",
+        "since": "2019-02-01",
+        "is_favorite": false,
+        "category_id": 5
+      },
+      {
+        "id": 16,
+        "name": "Flask",
+        "xp": 860,
+        "description": "Leichtgewichtiges Python-Webframework",
+        "since": "2020-02-01",
+        "is_favorite": true,
+        "category_id": 2
+      }
+    ],
+    "branch": {
+      "id": 3,
+      "name": "Privat"
+    }
+  },
+  {
+    "id": 9,
+    "name": "NationalLivingDex",
+    "description": "Eine Webapp, welche zum erstellen eines Livingdex von Pokemon helfen soll. Die Daten werden im Local Storage gespeichert",
+    "start_date": "2024-02-20",
+    "end_date": "2024-03-01",
+    "branch_id": 3,
+    "skills": [
+      {
+        "id": 13,
+        "name": "React",
+        "xp": 780,
+        "description": "JavaScript-Bibliothek für UI-Komponenten",
+        "since": "2020-02-01",
+        "is_favorite": true,
+        "category_id": 2
+      }
+    ],
+    "branch": {
+      "id": 3,
+      "name": "Privat"
+    }
+  }
+]

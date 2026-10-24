@@ -1,45 +1,14 @@
-import {useEffect, useMemo, useState} from "react";
+import {useMemo, useState} from "react";
 import {motion as Motion} from "framer-motion";
-import {Alert, Box, Card, CardContent, Chip, CircularProgress, Modal, Stack, Typography} from "@mui/material";
-import {API_URL} from "../config";
+import {Box, Card, CardContent, Chip, Modal, Stack, Typography} from "@mui/material";
 import {SkillCardBackside} from "./SkillPage.jsx";
 import {formatDate} from "../utils/utils.jsx";
-
-const professionalProjectCopy = {
-    1: {
-        title: "Bewertungsanwendung",
-        description: "Weiterentwicklung einer Anwendung zur Unterstützung von Bewertungs- und Vertragsprozessen.",
-    },
-    2: {
-        title: "Interne Webplattform",
-        description: "Ablösung einer bestehenden Plattform durch eine moderne Webanwendung.",
-    },
-    3: {
-        title: "Reporting-Anwendung",
-        description: "Webbasierte Auswertung von Kennzahlen und statistischen Daten für interne Berichte.",
-    },
-    4: {
-        title: "Bestellportal",
-        description: "Entwicklung eines internen Portals zur Verwaltung und Bestellung von Arbeitsmitteln.",
-    },
-    5: {
-        title: "Bankenrating-Anwendung",
-        description: "Konzeption und Full-Stack-Neuentwicklung eines Services zur Bewertung der Bonität von Banken. Dabei wurde ein überladenes Datenmodell in mehrere klar strukturierte Tabellen aufgeteilt.",
-    },
-    6: {
-        title: "Backend-Service zur Datenintegration",
-        description: "Entwicklung und Erweiterung eines Spring-Boot-Services, der mehrere Schnittstellen abfragt und ihre Antworten zu einem einheitlichen Ergebnis zusammenführt.",
-    },
-};
+import projectsData from "../data/projects.json";
 
 const getPublicProject = (project) => {
     if (project.branch_id === 2) {
         return {
             ...project,
-            ...professionalProjectCopy[project.id] || {
-                title: "Softwareprojekt im beruflichen Umfeld",
-                description: "Umsetzung und Weiterentwicklung einer Softwarelösung im Team.",
-            },
             projectType: "Berufliches Projekt",
         };
     }
@@ -53,30 +22,10 @@ const getPublicProject = (project) => {
 const formatProjectDate = (date) => date ? formatDate(date) : null;
 
 export default function ProjectsPage() {
-    const [projects, setProjects] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
     const [filter, setFilter] = useState("Alle");
     const [selectedSkill, setSelectedSkill] = useState(null);
 
-    useEffect(() => {
-        fetch(`${API_URL}/projects/`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`Fehler beim Laden der Projekte: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then((data) => {
-                setProjects(data.map(getPublicProject));
-                setLoading(false);
-            })
-            .catch((err) => {
-                console.error(err);
-                setError("Die Projekte konnten nicht geladen werden. Bitte versuche es später erneut.");
-                setLoading(false);
-            });
-    }, []);
+    const projects = useMemo(() => projectsData.map(getPublicProject), []);
 
     const filters = useMemo(() => (
         ["Alle", ...new Set(projects.map((project) => project.projectType))]
@@ -114,13 +63,7 @@ export default function ProjectsPage() {
                 ))}
             </Stack>
 
-            {loading ? (
-                <Box role="status" aria-label="Projekte werden geladen" sx={{display: "flex", justifyContent: "center", py: 8}}>
-                    <CircularProgress color="primary"/>
-                </Box>
-            ) : error ? (
-                <Alert severity="error" sx={{maxWidth: 700, mx: "auto"}}>{error}</Alert>
-            ) : filteredProjects.length > 0 ? (
+            {filteredProjects.length > 0 ? (
                 <Box sx={{display: "grid", gridTemplateColumns: {xs: "1fr", sm: "repeat(2, minmax(0, 1fr))", lg: "repeat(3, minmax(0, 1fr))"}, gap: 2}}>
                     {filteredProjects.map((project, index) => {
                         const startDate = formatProjectDate(project.start_date);
